@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		85541E6029BA1DEA006785EB /* ZanteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85541E5F29BA1DEA006785EB /* ZanteApp.swift */; };
+		85541E6229BA1DEA006785EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85541E6129BA1DEA006785EB /* ContentView.swift */; };
+		85541E6429BA1DEE006785EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85541E6329BA1DEE006785EB /* Assets.xcassets */; };
+		85541E6729BA1DEE006785EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85541E6629BA1DEE006785EB /* Preview Assets.xcassets */; };
+		85541E7129BA1DEF006785EB /* ZanteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85541E7029BA1DEF006785EB /* ZanteTests.swift */; };
+		85541E7B29BA1DEF006785EB /* ZanteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85541E7A29BA1DEF006785EB /* ZanteUITests.swift */; };
+		85541E7D29BA1DEF006785EB /* ZanteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85541E7C29BA1DEF006785EB /* ZanteUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		85541E6D29BA1DEF006785EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85541E5429BA1DEA006785EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 85541E5B29BA1DEA006785EB;
+			remoteInfo = Zante;
+		};
+		85541E7729BA1DEF006785EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85541E5429BA1DEA006785EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 85541E5B29BA1DEA006785EB;
+			remoteInfo = Zante;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		85541E5C29BA1DEA006785EB /* Zante.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zante.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		85541E5F29BA1DEA006785EB /* ZanteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZanteApp.swift; sourceTree = "<group>"; };
+		85541E6129BA1DEA006785EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		85541E6329BA1DEE006785EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		85541E6629BA1DEE006785EB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		85541E6C29BA1DEF006785EB /* ZanteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZanteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		85541E7029BA1DEF006785EB /* ZanteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZanteTests.swift; sourceTree = "<group>"; };
+		85541E7629BA1DEF006785EB /* ZanteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZanteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		85541E7A29BA1DEF006785EB /* ZanteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZanteUITests.swift; sourceTree = "<group>"; };
+		85541E7C29BA1DEF006785EB /* ZanteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZanteUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		85541E5929BA1DEA006785EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85541E6929BA1DEF006785EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85541E7329BA1DEF006785EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		85541E5329BA1DEA006785EB = {
+			isa = PBXGroup;
+			children = (
+				85541E5E29BA1DEA006785EB /* Zante */,
+				85541E6F29BA1DEF006785EB /* ZanteTests */,
+				85541E7929BA1DEF006785EB /* ZanteUITests */,
+				85541E5D29BA1DEA006785EB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		85541E5D29BA1DEA006785EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				85541E5C29BA1DEA006785EB /* Zante.app */,
+				85541E6C29BA1DEF006785EB /* ZanteTests.xctest */,
+				85541E7629BA1DEF006785EB /* ZanteUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		85541E5E29BA1DEA006785EB /* Zante */ = {
+			isa = PBXGroup;
+			children = (
+				85541E5F29BA1DEA006785EB /* ZanteApp.swift */,
+				85541E6129BA1DEA006785EB /* ContentView.swift */,
+				85541E6329BA1DEE006785EB /* Assets.xcassets */,
+				85541E6529BA1DEE006785EB /* Preview Content */,
+			);
+			path = Zante;
+			sourceTree = "<group>";
+		};
+		85541E6529BA1DEE006785EB /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				85541E6629BA1DEE006785EB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		85541E6F29BA1DEF006785EB /* ZanteTests */ = {
+			isa = PBXGroup;
+			children = (
+				85541E7029BA1DEF006785EB /* ZanteTests.swift */,
+			);
+			path = ZanteTests;
+			sourceTree = "<group>";
+		};
+		85541E7929BA1DEF006785EB /* ZanteUITests */ = {
+			isa = PBXGroup;
+			children = (
+				85541E7A29BA1DEF006785EB /* ZanteUITests.swift */,
+				85541E7C29BA1DEF006785EB /* ZanteUITestsLaunchTests.swift */,
+			);
+			path = ZanteUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		85541E5B29BA1DEA006785EB /* Zante */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85541E8029BA1DEF006785EB /* Build configuration list for PBXNativeTarget "Zante" */;
+			buildPhases = (
+				85541E5829BA1DEA006785EB /* Sources */,
+				85541E5929BA1DEA006785EB /* Frameworks */,
+				85541E5A29BA1DEA006785EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Zante;
+			productName = Zante;
+			productReference = 85541E5C29BA1DEA006785EB /* Zante.app */;
+			productType = "com.apple.product-type.application";
+		};
+		85541E6B29BA1DEF006785EB /* ZanteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85541E8329BA1DEF006785EB /* Build configuration list for PBXNativeTarget "ZanteTests" */;
+			buildPhases = (
+				85541E6829BA1DEF006785EB /* Sources */,
+				85541E6929BA1DEF006785EB /* Frameworks */,
+				85541E6A29BA1DEF006785EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				85541E6E29BA1DEF006785EB /* PBXTargetDependency */,
+			);
+			name = ZanteTests;
+			productName = ZanteTests;
+			productReference = 85541E6C29BA1DEF006785EB /* ZanteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		85541E7529BA1DEF006785EB /* ZanteUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85541E8629BA1DEF006785EB /* Build configuration list for PBXNativeTarget "ZanteUITests" */;
+			buildPhases = (
+				85541E7229BA1DEF006785EB /* Sources */,
+				85541E7329BA1DEF006785EB /* Frameworks */,
+				85541E7429BA1DEF006785EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				85541E7829BA1DEF006785EB /* PBXTargetDependency */,
+			);
+			name = ZanteUITests;
+			productName = ZanteUITests;
+			productReference = 85541E7629BA1DEF006785EB /* ZanteUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		85541E5429BA1DEA006785EB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					85541E5B29BA1DEA006785EB = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					85541E6B29BA1DEF006785EB = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 85541E5B29BA1DEA006785EB;
+					};
+					85541E7529BA1DEF006785EB = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 85541E5B29BA1DEA006785EB;
+					};
+				};
+			};
+			buildConfigurationList = 85541E5729BA1DEA006785EB /* Build configuration list for PBXProject "Zante" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 85541E5329BA1DEA006785EB;
+			productRefGroup = 85541E5D29BA1DEA006785EB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				85541E5B29BA1DEA006785EB /* Zante */,
+				85541E6B29BA1DEF006785EB /* ZanteTests */,
+				85541E7529BA1DEF006785EB /* ZanteUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		85541E5A29BA1DEA006785EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85541E6729BA1DEE006785EB /* Preview Assets.xcassets in Resources */,
+				85541E6429BA1DEE006785EB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85541E6A29BA1DEF006785EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85541E7429BA1DEF006785EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		85541E5829BA1DEA006785EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85541E6229BA1DEA006785EB /* ContentView.swift in Sources */,
+				85541E6029BA1DEA006785EB /* ZanteApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85541E6829BA1DEF006785EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85541E7129BA1DEF006785EB /* ZanteTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85541E7229BA1DEF006785EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85541E7B29BA1DEF006785EB /* ZanteUITests.swift in Sources */,
+				85541E7D29BA1DEF006785EB /* ZanteUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		85541E6E29BA1DEF006785EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 85541E5B29BA1DEA006785EB /* Zante */;
+			targetProxy = 85541E6D29BA1DEF006785EB /* PBXContainerItemProxy */;
+		};
+		85541E7829BA1DEF006785EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 85541E5B29BA1DEA006785EB /* Zante */;
+			targetProxy = 85541E7729BA1DEF006785EB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		85541E7E29BA1DEF006785EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		85541E7F29BA1DEF006785EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		85541E8129BA1DEF006785EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Zante/Preview Content\"";
+				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Ansh.Zante;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		85541E8229BA1DEF006785EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Zante/Preview Content\"";
+				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Ansh.Zante;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		85541E8429BA1DEF006785EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Ansh.ZanteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zante.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Zante";
+			};
+			name = Debug;
+		};
+		85541E8529BA1DEF006785EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Ansh.ZanteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zante.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Zante";
+			};
+			name = Release;
+		};
+		85541E8729BA1DEF006785EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Ansh.ZanteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Zante;
+			};
+			name = Debug;
+		};
+		85541E8829BA1DEF006785EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Ansh.ZanteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Zante;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		85541E5729BA1DEA006785EB /* Build configuration list for PBXProject "Zante" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85541E7E29BA1DEF006785EB /* Debug */,
+				85541E7F29BA1DEF006785EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85541E8029BA1DEF006785EB /* Build configuration list for PBXNativeTarget "Zante" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85541E8129BA1DEF006785EB /* Debug */,
+				85541E8229BA1DEF006785EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85541E8329BA1DEF006785EB /* Build configuration list for PBXNativeTarget "ZanteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85541E8429BA1DEF006785EB /* Debug */,
+				85541E8529BA1DEF006785EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85541E8629BA1DEF006785EB /* Build configuration list for PBXNativeTarget "ZanteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85541E8729BA1DEF006785EB /* Debug */,
+				85541E8829BA1DEF006785EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 85541E5429BA1DEA006785EB /* Project object */;
+}
