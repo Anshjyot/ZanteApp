@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		853AAD8D29C0D32E00EFB666 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AAD8C29C0D32E00EFB666 /* MainPage.swift */; };
+		853AAD9029C20EAF00EFB666 /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AAD8F29C20EAF00EFB666 /* FormField.swift */; };
+		853AAD9329C212CE00EFB666 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AAD9229C212CE00EFB666 /* LogInView.swift */; };
+		853AAD9529C214A400EFB666 /* ButtonModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AAD9429C214A400EFB666 /* ButtonModifiers.swift */; };
+		853AAD9929C224AE00EFB666 /* Zantelogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 853AAD9829C224AE00EFB666 /* Zantelogo.png */; };
+		853AAD9B29C2322A00EFB666 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AAD9A29C2322A00EFB666 /* SignUpView.swift */; };
+		853AAD9E29C2392100EFB666 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AAD9D29C2392100EFB666 /* ProfileImage.swift */; };
 		85541E6029BA1DEA006785EB /* ZanteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85541E5F29BA1DEA006785EB /* ZanteApp.swift */; };
 		85541E6229BA1DEA006785EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85541E6129BA1DEA006785EB /* ContentView.swift */; };
 		85541E6429BA1DEE006785EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85541E6329BA1DEE006785EB /* Assets.xcassets */; };
@@ -34,6 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		853AAD8C29C0D32E00EFB666 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
+		853AAD8F29C20EAF00EFB666 /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
+		853AAD9229C212CE00EFB666 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		853AAD9429C214A400EFB666 /* ButtonModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifiers.swift; sourceTree = "<group>"; };
+		853AAD9829C224AE00EFB666 /* Zantelogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Zantelogo.png; path = ../../../../Downloads/Zantelogo.png; sourceTree = "<group>"; };
+		853AAD9A29C2322A00EFB666 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		853AAD9D29C2392100EFB666 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		85541E5C29BA1DEA006785EB /* Zante.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zante.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85541E5F29BA1DEA006785EB /* ZanteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZanteApp.swift; sourceTree = "<group>"; };
 		85541E6129BA1DEA006785EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +85,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		853AAD8E29C20E6200EFB666 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				853AAD8F29C20EAF00EFB666 /* FormField.swift */,
+				853AAD9429C214A400EFB666 /* ButtonModifiers.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		853AAD9129C212AE00EFB666 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				853AAD9229C212CE00EFB666 /* LogInView.swift */,
+				853AAD9A29C2322A00EFB666 /* SignUpView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		853AAD9C29C238EF00EFB666 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				853AAD9D29C2392100EFB666 /* ProfileImage.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		85541E5329BA1DEA006785EB = {
 			isa = PBXGroup;
 			children = (
@@ -94,9 +134,14 @@
 		85541E5E29BA1DEA006785EB /* Zante */ = {
 			isa = PBXGroup;
 			children = (
+				853AAD9C29C238EF00EFB666 /* Utilities */,
+				853AAD9129C212AE00EFB666 /* View */,
+				853AAD8E29C20E6200EFB666 /* Component */,
 				85541E5F29BA1DEA006785EB /* ZanteApp.swift */,
 				85541E6129BA1DEA006785EB /* ContentView.swift */,
+				853AAD8C29C0D32E00EFB666 /* MainPage.swift */,
 				85541E6329BA1DEE006785EB /* Assets.xcassets */,
+				853AAD9829C224AE00EFB666 /* Zantelogo.png */,
 				85541E6529BA1DEE006785EB /* Preview Content */,
 			);
 			path = Zante;
@@ -233,6 +278,7 @@
 			files = (
 				85541E6729BA1DEE006785EB /* Preview Assets.xcassets in Resources */,
 				85541E6429BA1DEE006785EB /* Assets.xcassets in Resources */,
+				853AAD9929C224AE00EFB666 /* Zantelogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +303,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				853AAD9529C214A400EFB666 /* ButtonModifiers.swift in Sources */,
+				853AAD9E29C2392100EFB666 /* ProfileImage.swift in Sources */,
 				85541E6229BA1DEA006785EB /* ContentView.swift in Sources */,
 				85541E6029BA1DEA006785EB /* ZanteApp.swift in Sources */,
+				853AAD9B29C2322A00EFB666 /* SignUpView.swift in Sources */,
+				853AAD9029C20EAF00EFB666 /* FormField.swift in Sources */,
+				853AAD8D29C0D32E00EFB666 /* MainPage.swift in Sources */,
+				853AAD9329C212CE00EFB666 /* LogInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
