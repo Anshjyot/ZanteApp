@@ -17,12 +17,49 @@ struct SignUpView: View {
   @State private var showingImage = false
   @State private var imageData: Data = Data()
   @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+  @State private var error:String = ""
+  @State private var showingAlert = false
+  @State private var alertTitle: String = "Failed -,-"
 
   func loadImage() {
     guard let image = pickedImage else  {return}
 
     profileImage = image
   }
+
+  func errorCheck() -> String? {
+    if email.trimmingCharacters(in: .whitespaces).isEmpty ||
+        password.trimmingCharacters(in: .whitespaces).isEmpty ||
+        username.trimmingCharacters(in: .whitespaces).isEmpty ||
+        imageData.isEmpty{
+      return "Please fill in all boxes and provide an image for your profile"
+    }
+
+    return nil
+  }
+
+  func clear() {
+    self.email = ""
+    self.username = ""
+    self.password = ""
+  }
+
+  func signUp() {
+    if let error = errorCheck() {
+      self.error = error
+      self.showingAlert = true
+      return
+    }
+
+    AuthService.signUp(username: username, email: email, password: password, imageData: imageData, onSuccess: {(user) in self.clear()}) {
+      (errorMessage) in
+      print("Error \(errorMessage)")
+      self.error = errorMessage
+      self.showingAlert = true
+      return
+    }
+  }
+
 
 
     var body: some View {
@@ -68,9 +105,11 @@ struct SignUpView: View {
           }
 
 
-            Button(action: {}){
+            Button(action: signUp){
               Text("Sign Up").font(.title)
                 .modifier(ButtonModifiers())
+            }.alert(isPresented: $showingAlert) {
+              Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
             }
 
 

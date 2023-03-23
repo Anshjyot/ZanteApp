@@ -21,6 +21,21 @@
 		85541E7129BA1DEF006785EB /* ZanteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85541E7029BA1DEF006785EB /* ZanteTests.swift */; };
 		85541E7B29BA1DEF006785EB /* ZanteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85541E7A29BA1DEF006785EB /* ZanteUITests.swift */; };
 		85541E7D29BA1DEF006785EB /* ZanteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85541E7C29BA1DEF006785EB /* ZanteUITestsLaunchTests.swift */; };
+		858C26CA29CC8ABE00750253 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26C929CC8ABE00750253 /* SessionStore.swift */; };
+		858C26CC29CC903400750253 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26CB29CC903400750253 /* HomeView.swift */; };
+		858C26CE29CC998200750253 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26CD29CC998200750253 /* Search.swift */; };
+		858C26D229CC999F00750253 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26D129CC999F00750253 /* Add.swift */; };
+		858C26D429CC99C300750253 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26D329CC99C300750253 /* Notifications.swift */; };
+		858C26D629CC99D600750253 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26D529CC99D600750253 /* Profile.swift */; };
+		858C26D829CC9A3600750253 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26D729CC9A3600750253 /* Main.swift */; };
+		85928D0F29C359D100449D12 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85928D0E29C359D100449D12 /* GoogleService-Info.plist */; };
+		85928D1229C7928A00449D12 /*  UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85928D1129C7928A00449D12 /*  UserModel.swift */; };
+		85928D1429C7930200449D12 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85928D1329C7930200449D12 /* Extensions.swift */; };
+		85928D1729C79B2600449D12 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85928D1629C79B2600449D12 /* AuthService.swift */; };
+		85928D1929C79B4600449D12 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85928D1829C79B4600449D12 /* StorageService.swift */; };
+		A80C7576D42D095362D034BE /* Pods_Zante.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0BF4369CC56788B4FE98E7 /* Pods_Zante.framework */; };
+		EE2E047C170414F09DA40013 /* Pods_ZanteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C85A8D19387B554D2EB03F3 /* Pods_ZanteTests.framework */; };
+		FF4B4B15776AB2EFFC0AC5A9 /* Pods_Zante_ZanteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE75E2E1AF24C1143F5A17CC /* Pods_Zante_ZanteUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +56,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D43C48A2B0CD0919B9EE93A /* Pods-Zante.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zante.debug.xcconfig"; path = "Target Support Files/Pods-Zante/Pods-Zante.debug.xcconfig"; sourceTree = "<group>"; };
+		5C85A8D19387B554D2EB03F3 /* Pods_ZanteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZanteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B92AD5F9673753CD5F85A46 /* Pods-Zante-ZanteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zante-ZanteUITests.debug.xcconfig"; path = "Target Support Files/Pods-Zante-ZanteUITests/Pods-Zante-ZanteUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7B0BF4369CC56788B4FE98E7 /* Pods_Zante.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zante.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		853AAD8C29C0D32E00EFB666 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		853AAD8F29C20EAF00EFB666 /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
 		853AAD9229C212CE00EFB666 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
@@ -58,6 +77,23 @@
 		85541E7629BA1DEF006785EB /* ZanteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZanteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		85541E7A29BA1DEF006785EB /* ZanteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZanteUITests.swift; sourceTree = "<group>"; };
 		85541E7C29BA1DEF006785EB /* ZanteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZanteUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		858C26C929CC8ABE00750253 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		858C26CB29CC903400750253 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		858C26CD29CC998200750253 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		858C26D129CC999F00750253 /* Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add.swift; sourceTree = "<group>"; };
+		858C26D329CC99C300750253 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		858C26D529CC99D600750253 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		858C26D729CC9A3600750253 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		85928D0E29C359D100449D12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		85928D1129C7928A00449D12 /*  UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " UserModel.swift"; sourceTree = "<group>"; };
+		85928D1329C7930200449D12 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		85928D1629C79B2600449D12 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		85928D1829C79B4600449D12 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		AA77BC8DD11D4ED5FE3E5744 /* Pods-Zante-ZanteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zante-ZanteUITests.release.xcconfig"; path = "Target Support Files/Pods-Zante-ZanteUITests/Pods-Zante-ZanteUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D0BEA12C12BCA762609A10A5 /* Pods-ZanteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZanteTests.release.xcconfig"; path = "Target Support Files/Pods-ZanteTests/Pods-ZanteTests.release.xcconfig"; sourceTree = "<group>"; };
+		D1C293693DE162981E1B1EB0 /* Pods-Zante.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zante.release.xcconfig"; path = "Target Support Files/Pods-Zante/Pods-Zante.release.xcconfig"; sourceTree = "<group>"; };
+		EE75E2E1AF24C1143F5A17CC /* Pods_Zante_ZanteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zante_ZanteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDA74C91ED22CAE9D4501131 /* Pods-ZanteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZanteTests.debug.xcconfig"; path = "Target Support Files/Pods-ZanteTests/Pods-ZanteTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A80C7576D42D095362D034BE /* Pods_Zante.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE2E047C170414F09DA40013 /* Pods_ZanteTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF4B4B15776AB2EFFC0AC5A9 /* Pods_Zante_ZanteUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +138,12 @@
 			children = (
 				853AAD9229C212CE00EFB666 /* LogInView.swift */,
 				853AAD9A29C2322A00EFB666 /* SignUpView.swift */,
+				858C26CB29CC903400750253 /* HomeView.swift */,
+				858C26CD29CC998200750253 /* Search.swift */,
+				858C26D129CC999F00750253 /* Add.swift */,
+				858C26D329CC99C300750253 /* Notifications.swift */,
+				858C26D529CC99D600750253 /* Profile.swift */,
+				858C26D729CC9A3600750253 /* Main.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -107,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				853AAD9D29C2392100EFB666 /* ProfileImage.swift */,
+				85928D1329C7930200449D12 /* Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -118,6 +164,8 @@
 				85541E6F29BA1DEF006785EB /* ZanteTests */,
 				85541E7929BA1DEF006785EB /* ZanteUITests */,
 				85541E5D29BA1DEA006785EB /* Products */,
+				EEA5B1329F37DF687C3560ED /* Pods */,
+				98FCEC573C605AC6C950443B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +182,9 @@
 		85541E5E29BA1DEA006785EB /* Zante */ = {
 			isa = PBXGroup;
 			children = (
+				85928D1529C79B1800449D12 /* Services */,
+				85928D1029C7922C00449D12 /* Model */,
+				85928D0E29C359D100449D12 /* GoogleService-Info.plist */,
 				853AAD9C29C238EF00EFB666 /* Utilities */,
 				853AAD9129C212AE00EFB666 /* View */,
 				853AAD8E29C20E6200EFB666 /* Component */,
@@ -172,6 +223,47 @@
 			path = ZanteUITests;
 			sourceTree = "<group>";
 		};
+		85928D1029C7922C00449D12 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				85928D1129C7928A00449D12 /*  UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		85928D1529C79B1800449D12 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				85928D1629C79B2600449D12 /* AuthService.swift */,
+				85928D1829C79B4600449D12 /* StorageService.swift */,
+				858C26C929CC8ABE00750253 /* SessionStore.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		98FCEC573C605AC6C950443B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B0BF4369CC56788B4FE98E7 /* Pods_Zante.framework */,
+				EE75E2E1AF24C1143F5A17CC /* Pods_Zante_ZanteUITests.framework */,
+				5C85A8D19387B554D2EB03F3 /* Pods_ZanteTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EEA5B1329F37DF687C3560ED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D43C48A2B0CD0919B9EE93A /* Pods-Zante.debug.xcconfig */,
+				D1C293693DE162981E1B1EB0 /* Pods-Zante.release.xcconfig */,
+				6B92AD5F9673753CD5F85A46 /* Pods-Zante-ZanteUITests.debug.xcconfig */,
+				AA77BC8DD11D4ED5FE3E5744 /* Pods-Zante-ZanteUITests.release.xcconfig */,
+				FDA74C91ED22CAE9D4501131 /* Pods-ZanteTests.debug.xcconfig */,
+				D0BEA12C12BCA762609A10A5 /* Pods-ZanteTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -179,9 +271,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 85541E8029BA1DEF006785EB /* Build configuration list for PBXNativeTarget "Zante" */;
 			buildPhases = (
+				F4A29C76C62C8EC8E0C58681 /* [CP] Check Pods Manifest.lock */,
 				85541E5829BA1DEA006785EB /* Sources */,
 				85541E5929BA1DEA006785EB /* Frameworks */,
 				85541E5A29BA1DEA006785EB /* Resources */,
+				EACD8CEAA14C7AB06AE67B69 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,6 +290,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 85541E8329BA1DEF006785EB /* Build configuration list for PBXNativeTarget "ZanteTests" */;
 			buildPhases = (
+				57048A2A4ABDE3123F0457EC /* [CP] Check Pods Manifest.lock */,
 				85541E6829BA1DEF006785EB /* Sources */,
 				85541E6929BA1DEF006785EB /* Frameworks */,
 				85541E6A29BA1DEF006785EB /* Resources */,
@@ -214,9 +309,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 85541E8629BA1DEF006785EB /* Build configuration list for PBXNativeTarget "ZanteUITests" */;
 			buildPhases = (
+				F278015B15BEF968CE194EF3 /* [CP] Check Pods Manifest.lock */,
 				85541E7229BA1DEF006785EB /* Sources */,
 				85541E7329BA1DEF006785EB /* Frameworks */,
 				85541E7429BA1DEF006785EB /* Resources */,
+				07B6586D03FE92CE5702B179 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -277,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85541E6729BA1DEE006785EB /* Preview Assets.xcassets in Resources */,
+				85928D0F29C359D100449D12 /* GoogleService-Info.plist in Resources */,
 				85541E6429BA1DEE006785EB /* Assets.xcassets in Resources */,
 				853AAD9929C224AE00EFB666 /* Zantelogo.png in Resources */,
 			);
@@ -298,17 +396,131 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		07B6586D03FE92CE5702B179 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Zante-ZanteUITests/Pods-Zante-ZanteUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Zante-ZanteUITests/Pods-Zante-ZanteUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Zante-ZanteUITests/Pods-Zante-ZanteUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57048A2A4ABDE3123F0457EC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZanteTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EACD8CEAA14C7AB06AE67B69 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Zante/Pods-Zante-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Zante/Pods-Zante-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Zante/Pods-Zante-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F278015B15BEF968CE194EF3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Zante-ZanteUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4A29C76C62C8EC8E0C58681 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Zante-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		85541E5829BA1DEA006785EB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				858C26CA29CC8ABE00750253 /* SessionStore.swift in Sources */,
+				858C26CC29CC903400750253 /* HomeView.swift in Sources */,
 				853AAD9529C214A400EFB666 /* ButtonModifiers.swift in Sources */,
+				85928D1929C79B4600449D12 /* StorageService.swift in Sources */,
+				85928D1229C7928A00449D12 /*  UserModel.swift in Sources */,
 				853AAD9E29C2392100EFB666 /* ProfileImage.swift in Sources */,
 				85541E6229BA1DEA006785EB /* ContentView.swift in Sources */,
+				858C26D629CC99D600750253 /* Profile.swift in Sources */,
 				85541E6029BA1DEA006785EB /* ZanteApp.swift in Sources */,
+				85928D1729C79B2600449D12 /* AuthService.swift in Sources */,
+				85928D1429C7930200449D12 /* Extensions.swift in Sources */,
 				853AAD9B29C2322A00EFB666 /* SignUpView.swift in Sources */,
+				858C26D829CC9A3600750253 /* Main.swift in Sources */,
 				853AAD9029C20EAF00EFB666 /* FormField.swift in Sources */,
+				858C26CE29CC998200750253 /* Search.swift in Sources */,
+				858C26D429CC99C300750253 /* Notifications.swift in Sources */,
+				858C26D229CC999F00750253 /* Add.swift in Sources */,
 				853AAD8D29C0D32E00EFB666 /* MainPage.swift in Sources */,
 				853AAD9329C212CE00EFB666 /* LogInView.swift in Sources */,
 			);
@@ -463,6 +675,7 @@
 		};
 		85541E8129BA1DEF006785EB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D43C48A2B0CD0919B9EE93A /* Pods-Zante.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -492,6 +705,7 @@
 		};
 		85541E8229BA1DEF006785EB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1C293693DE162981E1B1EB0 /* Pods-Zante.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -521,6 +735,7 @@
 		};
 		85541E8429BA1DEF006785EB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDA74C91ED22CAE9D4501131 /* Pods-ZanteTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -541,6 +756,7 @@
 		};
 		85541E8529BA1DEF006785EB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0BEA12C12BCA762609A10A5 /* Pods-ZanteTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -561,6 +777,7 @@
 		};
 		85541E8729BA1DEF006785EB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B92AD5F9673753CD5F85A46 /* Pods-Zante-ZanteUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -579,6 +796,7 @@
 		};
 		85541E8829BA1DEF006785EB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA77BC8DD11D4ED5FE3E5744 /* Pods-Zante-ZanteUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

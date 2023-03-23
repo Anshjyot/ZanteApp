@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State private var mail = ""
-  @State private var password = ""
+
+  @EnvironmentObject var session: SessionStore
+
+  func listen() {
+    session.listen()
+  }
 
   var body: some View {
-    LogInView()
+    Group{
+      if(session.session != nil) {
+        HomeView()
+      } else {
+        LogInView()
+      }
+    }.onAppear(perform: listen)
   }
 }
 

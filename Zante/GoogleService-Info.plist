@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>152371744413-638acbvfb8s0bsngm87kfr1e416jur21.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.152371744413-638acbvfb8s0bsngm87kfr1e416jur21</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDxhj0N4gHgVXhMplchi5D7ETbO6_ttL5A</string>
+	<key>GCM_SENDER_ID</key>
+	<string>152371744413</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Ansh.Zante</string>
+	<key>PROJECT_ID</key>
+	<string>zante-cbd70</string>
+	<key>STORAGE_BUCKET</key>
+	<string>zante-cbd70.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:152371744413:ios:e1c6bd272a52f423100e74</string>
+</dict>
+</plist>
