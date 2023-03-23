@@ -1,0 +1,6 @@
+framework module Pods_ZanteTests {
+  umbrella header "Pods-ZanteTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
