@@ -20,6 +20,7 @@ struct SignUpView: View {
   @State private var error:String = ""
   @State private var showingAlert = false
   @State private var alertTitle: String = "Failed -,-"
+  @State private var isLinkActive = false
 
   func loadImage() {
     guard let image = pickedImage else  {return}
@@ -42,6 +43,8 @@ struct SignUpView: View {
     self.email = ""
     self.username = ""
     self.password = ""
+    self.imageData = Data()
+    self.profileImage = Image(systemName: "person.circle.fill")
   }
 
   func signUp() {
@@ -53,9 +56,9 @@ struct SignUpView: View {
 
     AuthService.signUp(username: username, email: email, password: password, imageData: imageData, onSuccess: {(user) in self.clear()}) {
       (errorMessage) in
-      print("Error \(errorMessage)")
       self.error = errorMessage
       self.showingAlert = true
+      self.clear()
       return
     }
   }
@@ -104,10 +107,14 @@ struct SignUpView: View {
             FormField(value: $password, icon: "lock.fill", placeholder: "Password", isSecure: true)
           }
 
-
-            Button(action: signUp){
-              Text("Sign Up").font(.title)
-                .modifier(ButtonModifiers())
+          NavigationLink(destination: LogInView(), isActive: $isLinkActive) {
+            EmptyView()
+          Button(action: { signUp()
+            self.isLinkActive = true
+          }){
+            Text("Sign Up").font(.title)
+              .modifier(ButtonModifiers())
+          }
             }.alert(isPresented: $showingAlert) {
               Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
             }

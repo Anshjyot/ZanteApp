@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct LogInView: View {
+
+  @EnvironmentObject var session: SessionStore
+
+  func listen() {
+    session.listen()
+  }
+
   @State private var email: String = ""
   @State private var password: String = ""
 
@@ -69,8 +76,10 @@ struct LogInView: View {
 
             FormField(value: $password, icon: "lock.fill", placeholder: "Password", isSecure: true)
 
-            Button(action: logIn){
-              Text("Log In").font(.title)
+          Button(action: {logIn()
+            listen()
+          }){
+              Text("Log In").font(.title) 
                 .modifier(ButtonModifiers())
             }.alert(isPresented: $showingAlert) {
               Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))

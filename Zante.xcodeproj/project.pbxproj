@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8521266729E2CE6900677819 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8521266629E2CE6900677819 /* FollowButton.swift */; };
+		8521266929E2D1D000677819 /* UsersProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8521266829E2D1D000677819 /* UsersProfileView.swift */; };
+		8521266B29E32AE800677819 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8521266A29E32AE800677819 /* CommentModel.swift */; };
+		8521266D29E32B9D00677819 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8521266C29E32B9D00677819 /* CommentService.swift */; };
+		8521266F29E333DA00677819 /* CommentCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8521266E29E333DA00677819 /* CommentCard.swift */; };
+		8521267129E33D4A00677819 /* CommentInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8521267029E33D4A00677819 /* CommentInput.swift */; };
+		8521267329E33FE100677819 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8521267229E33FE100677819 /* Comment.swift */; };
+		8521267529E3638600677819 /* EditProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8521267429E3638600677819 /* EditProfile.swift */; };
+		8521267729E402F500677819 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8521267629E402F500677819 /* ChatModel.swift */; };
+		8521267929E403D700677819 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8521267829E403D700677819 /* MessageModel.swift */; };
+		8521267B29E4045C00677819 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8521267A29E4045C00677819 /* ChatService.swift */; };
 		853AAD8D29C0D32E00EFB666 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AAD8C29C0D32E00EFB666 /* MainPage.swift */; };
 		853AAD9029C20EAF00EFB666 /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AAD8F29C20EAF00EFB666 /* FormField.swift */; };
 		853AAD9329C212CE00EFB666 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AAD9229C212CE00EFB666 /* LogInView.swift */; };
@@ -23,7 +34,7 @@
 		858C26CA29CC8ABE00750253 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26C929CC8ABE00750253 /* SessionStore.swift */; };
 		858C26CC29CC903400750253 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26CB29CC903400750253 /* HomeView.swift */; };
 		858C26CE29CC998200750253 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26CD29CC998200750253 /* Search.swift */; };
-		858C26D229CC999F00750253 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26D129CC999F00750253 /* Add.swift */; };
+		858C26D229CC999F00750253 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26D129CC999F00750253 /* Post.swift */; };
 		858C26D429CC99C300750253 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26D329CC99C300750253 /* Notifications.swift */; };
 		858C26D629CC99D600750253 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26D529CC99D600750253 /* Profile.swift */; };
 		858C26D829CC9A3600750253 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26D729CC9A3600750253 /* Main.swift */; };
@@ -32,6 +43,18 @@
 		85928D1429C7930200449D12 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85928D1329C7930200449D12 /* Extensions.swift */; };
 		85928D1729C79B2600449D12 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85928D1629C79B2600449D12 /* AuthService.swift */; };
 		85928D1929C79B4600449D12 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85928D1829C79B4600449D12 /* StorageService.swift */; };
+		85A8C78929E1F7C70081FD5D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A8C78829E1F7C70081FD5D /* SearchBar.swift */; };
+		85A8C78B29E1F8DC0081FD5D /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A8C78A29E1F8DC0081FD5D /* SearchService.swift */; };
+		85A8C78D29E1FAFE0081FD5D /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A8C78C29E1FAFE0081FD5D /* UserProfile.swift */; };
+		85A8C78F29E23A0C0081FD5D /* FollowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A8C78E29E23A0C0081FD5D /* FollowService.swift */; };
+		85A9900A29CCD96F00AD6E31 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A9900929CCD96E00AD6E31 /* PostModel.swift */; };
+		85A9900C29CCE3B400AD6E31 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A9900B29CCE3B400AD6E31 /* PostService.swift */; };
+		85A9900F29CD077B00AD6E31 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 85A9900E29CD077B00AD6E31 /* SDWebImageSwiftUI */; };
+		85A9901129CD07B100AD6E31 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A9901029CD07B100AD6E31 /* ProfileHeader.swift */; };
+		85A9901329CF7DD500AD6E31 /* PostCardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A9901229CF7DD500AD6E31 /* PostCardService.swift */; };
+		85A9901529CF8BB200AD6E31 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A9901429CF8BB200AD6E31 /* ProfileService.swift */; };
+		85A9901729CF8CE500AD6E31 /* PostCardImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A9901629CF8CE500AD6E31 /* PostCardImage.swift */; };
+		85EC1AF429DAEC1D0076490E /* PostCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC1AF329DAEC1D0076490E /* PostCard.swift */; };
 		A80C7576D42D095362D034BE /* Pods_Zante.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0BF4369CC56788B4FE98E7 /* Pods_Zante.framework */; };
 		EE2E047C170414F09DA40013 /* Pods_ZanteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C85A8D19387B554D2EB03F3 /* Pods_ZanteTests.framework */; };
 		FF4B4B15776AB2EFFC0AC5A9 /* Pods_Zante_ZanteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE75E2E1AF24C1143F5A17CC /* Pods_Zante_ZanteUITests.framework */; };
@@ -59,6 +82,17 @@
 		5C85A8D19387B554D2EB03F3 /* Pods_ZanteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZanteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B92AD5F9673753CD5F85A46 /* Pods-Zante-ZanteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zante-ZanteUITests.debug.xcconfig"; path = "Target Support Files/Pods-Zante-ZanteUITests/Pods-Zante-ZanteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7B0BF4369CC56788B4FE98E7 /* Pods_Zante.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zante.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8521266629E2CE6900677819 /* FollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowButton.swift; sourceTree = "<group>"; };
+		8521266829E2D1D000677819 /* UsersProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersProfileView.swift; sourceTree = "<group>"; };
+		8521266A29E32AE800677819 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
+		8521266C29E32B9D00677819 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
+		8521266E29E333DA00677819 /* CommentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCard.swift; sourceTree = "<group>"; };
+		8521267029E33D4A00677819 /* CommentInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInput.swift; sourceTree = "<group>"; };
+		8521267229E33FE100677819 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		8521267429E3638600677819 /* EditProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfile.swift; sourceTree = "<group>"; };
+		8521267629E402F500677819 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		8521267829E403D700677819 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		8521267A29E4045C00677819 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		853AAD8C29C0D32E00EFB666 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		853AAD8F29C20EAF00EFB666 /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
 		853AAD9229C212CE00EFB666 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
@@ -78,7 +112,7 @@
 		858C26C929CC8ABE00750253 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		858C26CB29CC903400750253 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		858C26CD29CC998200750253 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
-		858C26D129CC999F00750253 /* Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add.swift; sourceTree = "<group>"; };
+		858C26D129CC999F00750253 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		858C26D329CC99C300750253 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		858C26D529CC99D600750253 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		858C26D729CC9A3600750253 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -87,6 +121,17 @@
 		85928D1329C7930200449D12 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		85928D1629C79B2600449D12 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		85928D1829C79B4600449D12 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		85A8C78829E1F7C70081FD5D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		85A8C78A29E1F8DC0081FD5D /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		85A8C78C29E1FAFE0081FD5D /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		85A8C78E29E23A0C0081FD5D /* FollowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowService.swift; sourceTree = "<group>"; };
+		85A9900929CCD96E00AD6E31 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		85A9900B29CCE3B400AD6E31 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		85A9901029CD07B100AD6E31 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
+		85A9901229CF7DD500AD6E31 /* PostCardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardService.swift; sourceTree = "<group>"; };
+		85A9901429CF8BB200AD6E31 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		85A9901629CF8CE500AD6E31 /* PostCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardImage.swift; sourceTree = "<group>"; };
+		85EC1AF329DAEC1D0076490E /* PostCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCard.swift; sourceTree = "<group>"; };
 		AA77BC8DD11D4ED5FE3E5744 /* Pods-Zante-ZanteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zante-ZanteUITests.release.xcconfig"; path = "Target Support Files/Pods-Zante-ZanteUITests/Pods-Zante-ZanteUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D0BEA12C12BCA762609A10A5 /* Pods-ZanteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZanteTests.release.xcconfig"; path = "Target Support Files/Pods-ZanteTests/Pods-ZanteTests.release.xcconfig"; sourceTree = "<group>"; };
 		D1C293693DE162981E1B1EB0 /* Pods-Zante.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zante.release.xcconfig"; path = "Target Support Files/Pods-Zante/Pods-Zante.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85A9900F29CD077B00AD6E31 /* SDWebImageSwiftUI in Frameworks */,
 				A80C7576D42D095362D034BE /* Pods_Zante.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +173,13 @@
 			children = (
 				853AAD8F29C20EAF00EFB666 /* FormField.swift */,
 				853AAD9429C214A400EFB666 /* ButtonModifiers.swift */,
+				85A9901029CD07B100AD6E31 /* ProfileHeader.swift */,
+				85A9901629CF8CE500AD6E31 /* PostCardImage.swift */,
+				85EC1AF329DAEC1D0076490E /* PostCard.swift */,
+				85A8C78829E1F7C70081FD5D /* SearchBar.swift */,
+				8521266629E2CE6900677819 /* FollowButton.swift */,
+				8521266E29E333DA00677819 /* CommentCard.swift */,
+				8521267029E33D4A00677819 /* CommentInput.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -138,10 +191,14 @@
 				853AAD9A29C2322A00EFB666 /* SignUpView.swift */,
 				858C26CB29CC903400750253 /* HomeView.swift */,
 				858C26CD29CC998200750253 /* Search.swift */,
-				858C26D129CC999F00750253 /* Add.swift */,
+				858C26D129CC999F00750253 /* Post.swift */,
 				858C26D329CC99C300750253 /* Notifications.swift */,
 				858C26D529CC99D600750253 /* Profile.swift */,
 				858C26D729CC9A3600750253 /* Main.swift */,
+				85A8C78C29E1FAFE0081FD5D /* UserProfile.swift */,
+				8521266829E2D1D000677819 /* UsersProfileView.swift */,
+				8521267229E33FE100677819 /* Comment.swift */,
+				8521267429E3638600677819 /* EditProfile.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -224,6 +281,10 @@
 			isa = PBXGroup;
 			children = (
 				85928D1129C7928A00449D12 /*  UserModel.swift */,
+				85A9900929CCD96E00AD6E31 /* PostModel.swift */,
+				8521266A29E32AE800677819 /* CommentModel.swift */,
+				8521267629E402F500677819 /* ChatModel.swift */,
+				8521267829E403D700677819 /* MessageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -234,6 +295,13 @@
 				85928D1629C79B2600449D12 /* AuthService.swift */,
 				85928D1829C79B4600449D12 /* StorageService.swift */,
 				858C26C929CC8ABE00750253 /* SessionStore.swift */,
+				85A9900B29CCE3B400AD6E31 /* PostService.swift */,
+				85A9901229CF7DD500AD6E31 /* PostCardService.swift */,
+				85A9901429CF8BB200AD6E31 /* ProfileService.swift */,
+				85A8C78A29E1F8DC0081FD5D /* SearchService.swift */,
+				85A8C78E29E23A0C0081FD5D /* FollowService.swift */,
+				8521266C29E32B9D00677819 /* CommentService.swift */,
+				8521267A29E4045C00677819 /* ChatService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -279,6 +347,9 @@
 			dependencies = (
 			);
 			name = Zante;
+			packageProductDependencies = (
+				85A9900E29CD077B00AD6E31 /* SDWebImageSwiftUI */,
+			);
 			productName = Zante;
 			productReference = 85541E5C29BA1DEA006785EB /* Zante.app */;
 			productType = "com.apple.product-type.application";
@@ -354,6 +425,9 @@
 				Base,
 			);
 			mainGroup = 85541E5329BA1DEA006785EB;
+			packageReferences = (
+				85A9900D29CD077B00AD6E31 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 85541E5D29BA1DEA006785EB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -501,22 +575,44 @@
 			buildActionMask = 2147483647;
 			files = (
 				858C26CA29CC8ABE00750253 /* SessionStore.swift in Sources */,
+				85A9900A29CCD96F00AD6E31 /* PostModel.swift in Sources */,
 				858C26CC29CC903400750253 /* HomeView.swift in Sources */,
 				853AAD9529C214A400EFB666 /* ButtonModifiers.swift in Sources */,
 				85928D1929C79B4600449D12 /* StorageService.swift in Sources */,
 				85928D1229C7928A00449D12 /*  UserModel.swift in Sources */,
+				85A8C78F29E23A0C0081FD5D /* FollowService.swift in Sources */,
+				8521266B29E32AE800677819 /* CommentModel.swift in Sources */,
 				853AAD9E29C2392100EFB666 /* ProfileImage.swift in Sources */,
+				8521266D29E32B9D00677819 /* CommentService.swift in Sources */,
+				85A9901329CF7DD500AD6E31 /* PostCardService.swift in Sources */,
+				8521267729E402F500677819 /* ChatModel.swift in Sources */,
+				8521267529E3638600677819 /* EditProfile.swift in Sources */,
+				85A8C78D29E1FAFE0081FD5D /* UserProfile.swift in Sources */,
 				85541E6229BA1DEA006785EB /* ContentView.swift in Sources */,
 				858C26D629CC99D600750253 /* Profile.swift in Sources */,
 				85541E6029BA1DEA006785EB /* ZanteApp.swift in Sources */,
+				85EC1AF429DAEC1D0076490E /* PostCard.swift in Sources */,
+				8521266729E2CE6900677819 /* FollowButton.swift in Sources */,
+				8521266929E2D1D000677819 /* UsersProfileView.swift in Sources */,
+				85A9901129CD07B100AD6E31 /* ProfileHeader.swift in Sources */,
+				8521267B29E4045C00677819 /* ChatService.swift in Sources */,
 				85928D1729C79B2600449D12 /* AuthService.swift in Sources */,
+				8521267329E33FE100677819 /* Comment.swift in Sources */,
+				85A8C78929E1F7C70081FD5D /* SearchBar.swift in Sources */,
+				8521266F29E333DA00677819 /* CommentCard.swift in Sources */,
 				85928D1429C7930200449D12 /* Extensions.swift in Sources */,
+				85A9901729CF8CE500AD6E31 /* PostCardImage.swift in Sources */,
 				853AAD9B29C2322A00EFB666 /* SignUpView.swift in Sources */,
 				858C26D829CC9A3600750253 /* Main.swift in Sources */,
 				853AAD9029C20EAF00EFB666 /* FormField.swift in Sources */,
+				85A9901529CF8BB200AD6E31 /* ProfileService.swift in Sources */,
+				8521267129E33D4A00677819 /* CommentInput.swift in Sources */,
 				858C26CE29CC998200750253 /* Search.swift in Sources */,
+				85A9900C29CCE3B400AD6E31 /* PostService.swift in Sources */,
 				858C26D429CC99C300750253 /* Notifications.swift in Sources */,
-				858C26D229CC999F00750253 /* Add.swift in Sources */,
+				8521267929E403D700677819 /* MessageModel.swift in Sources */,
+				858C26D229CC999F00750253 /* Post.swift in Sources */,
+				85A8C78B29E1F8DC0081FD5D /* SearchService.swift in Sources */,
 				853AAD8D29C0D32E00EFB666 /* MainPage.swift in Sources */,
 				853AAD9329C212CE00EFB666 /* LogInView.swift in Sources */,
 			);
@@ -849,6 +945,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		85A9900D29CD077B00AD6E31 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		85A9900E29CD077B00AD6E31 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85A9900D29CD077B00AD6E31 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 85541E5429BA1DEA006785EB /* Project object */;
 }
