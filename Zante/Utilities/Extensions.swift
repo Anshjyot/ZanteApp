@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseStorage
 
 extension Encodable {
   func asDictionary() throws -> [String: Any] {

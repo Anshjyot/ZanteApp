@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import Firebase
 import FirebaseAuth
-
+import FirebaseStorage
 
 class SessionStore: ObservableObject {
 

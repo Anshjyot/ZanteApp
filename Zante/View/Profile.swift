@@ -1,6 +1,7 @@
 import SwiftUI
 import FirebaseAuth
 import SDWebImageSwiftUI
+import FirebaseStorage
 
 struct Profile: View {
   @State var selection = 1

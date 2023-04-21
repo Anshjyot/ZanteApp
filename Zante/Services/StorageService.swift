@@ -24,9 +24,14 @@ class StorageService {
 
   static var storageChat = storageRoot.child("chat")
 
-  static func storagePostID(postId: String) -> StorageReference {
+  /*static func storagePostID(postId: String) -> StorageReference {
     return storagePost.child(postId)
-  }
+  }*/
+
+  static func storagePostID(postId: String, isImage: Bool) -> StorageReference {
+          let fileName = isImage ? "post_photo" : "post_audio"
+          return storagePost.child(postId).child(fileName)
+      }
 
   static func storagechatID(chatId: String) -> StorageReference {
     return storageChat.child(chatId)
@@ -194,6 +199,52 @@ class StorageService {
     }
     
   }
+
+  static func savePostAudio(userId: String, caption: String, postId: String, audioData: Data, metadata: StorageMetadata, storagePostRef: StorageReference, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+      storagePostRef.putData(audioData, metadata: metadata) { (_, error) in
+          if let error = error {
+              onError(error.localizedDescription)
+              return
+          }
+
+          storagePostRef.downloadURL { (url, error) in
+              if let error = error {
+                  onError(error.localizedDescription)
+                  return
+              }
+
+              guard let urlString = url?.absoluteString else {
+                  onError("Error while getting download URL.")
+                  return
+              }
+
+              let firestorePostRef = PostService.PostsUserId(userId: userId).collection("posts").document(postId)
+              let newPost = PostModel(caption: caption, likes: [String: Bool](), location: "", ownerId: userId, postId: postId, username: "", profile: "", mediaUrl: "", date: Date().timeIntervalSince1970, likeCount: 0, audioURL: urlString)
+
+              guard let dict = try? newPost.asDictionary() else {
+                  return
+              }
+
+            firestorePostRef.setData(dict) { (error) in
+              if let error = error {
+                onError(error.localizedDescription)
+              } else {
+                PostService.AllPosts.document(postId).setData(dict)
+                PostService.timelineUserId(userId: userId).collection("timeline").document(postId).setData(dict) { (error) in
+                    if let error = error {
+                        onError(error.localizedDescription)
+                    } else {
+                        onSuccess()
+                    }
+                }
+            }
+        }
+    }
+}
+}
+
+
+
 
   }
 

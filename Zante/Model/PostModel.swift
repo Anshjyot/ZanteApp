@@ -19,4 +19,5 @@ struct PostModel: Encodable, Decodable {
   var mediaUrl: String
   var date: Double
   var likeCount: Int
+  var audioURL: String?
 }

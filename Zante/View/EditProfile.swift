@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import FirebaseStorage
 import SDWebImageSwiftUI
 
 struct EditProfile: View {

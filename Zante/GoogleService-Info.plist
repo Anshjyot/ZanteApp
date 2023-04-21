@@ -19,16 +19,26 @@
 	<key>STORAGE_BUCKET</key>
 	<string>zante-cbd70.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:152371744413:ios:e1c6bd272a52f423100e74</string>
+	<key>CFBundleIdentifier</key>
+	<string>&lt;key&gt;NSMusicPlayerUsageDescription&lt;/key&gt;
+&lt;string&gt;Your description here&lt;/string&gt;
+</string>
+	<key>CFBundleExecutable</key>
+	<string>&lt;key&gt;NSPhotoLibraryUsageDescription&lt;/key&gt;
+&lt;string&gt;Your description here&lt;/string&gt;
+&lt;key&gt;NSMicrophoneUsageDescription&lt;/key&gt;
+&lt;string&gt;Your description here&lt;/string&gt;
+</string>
 </dict>
 </plist>

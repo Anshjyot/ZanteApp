@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
 
 class ProfileService : ObservableObject {
   @Published var posts: [PostModel] = []

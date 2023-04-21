@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseStorage
 
 class SearchService{
   static func searchUser(input: String, onSuccess: @escaping (_ user: [User]) -> Void) {

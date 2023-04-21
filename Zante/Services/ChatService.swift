@@ -7,6 +7,8 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
+
 class ChatService: ObservableObject {
 
   @Published var isLoading = false

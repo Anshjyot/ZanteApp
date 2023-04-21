@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import FirebaseStorage
 import SwiftUI
 
 struct ProfileImage: UIViewControllerRepresentable {

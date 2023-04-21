@@ -23,7 +23,7 @@ struct HomeView: View{
     }
 }
 
-var tabs = ["house.fill", "magnifyingglass", "camera.viewfinder", "heart.fill", "person.fill"]
+var tabs = ["house.fill", "magnifyingglass", "camera.viewfinder", "person.fill"]
 
 struct CustomTabView: View{
     @State var selectedTab = "house.fill"
@@ -39,8 +39,6 @@ struct CustomTabView: View{
                     .tag("magnifyingglass")
                 Post()
                     .tag("camera.viewfinder")
-                Notifications()
-                    .tag("heart.fill")
                 Profile()
                     .tag("person.fill")
             }

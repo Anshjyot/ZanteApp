@@ -25,7 +25,7 @@ class PostService {
     return Timeline.document(userId)
   }
 
-  static func uploadPost(caption: String, imageData: Data, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+  /*static func uploadPost(caption: String, imageData: Data, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
     guard let userId = Auth.auth().currentUser?.uid else {
       return
     }
@@ -37,6 +37,32 @@ class PostService {
 
     StorageService.savePostPhoto(userId: userId, caption: caption, postId: postId, imageData: imageData, metadata: metaData, storagePostRef: storagePostRef, onSuccess: onSuccess, onError: onError)
   }
+   */
+
+  static func uploadPost(caption: String, imageData: Data?, audioData: Data?, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+      guard let userId = Auth.auth().currentUser?.uid else {
+          return
+      }
+
+      let postId = PostService.PostsUserId(userId: userId).collection("posts").document().documentID
+
+      if let imageData = imageData {
+          let storagePostRef = StorageService.storagePostID(postId: postId, isImage: true) // Update this line
+          let metaData = StorageMetadata()
+          metaData.contentType = "image/jpg"
+
+          StorageService.savePostPhoto(userId: userId, caption: caption, postId: postId, imageData: imageData, metadata: metaData, storagePostRef: storagePostRef, onSuccess: onSuccess, onError: onError)
+      }
+
+      if let audioData = audioData {
+          let storagePostRef = StorageService.storagePostID(postId: postId, isImage: false) // Update this line
+          let metaData = StorageMetadata()
+          metaData.contentType = "audio/mp3"
+
+          StorageService.savePostAudio(userId: userId, caption: caption, postId: postId, audioData: audioData, metadata: metaData, storagePostRef: storagePostRef, onSuccess: onSuccess, onError: onError)
+      }
+  }
+
 
   static func loadPost(postId: String, onSuccess: @escaping(_ post: PostModel) -> Void) {
     PostService.AllPosts.document(postId).getDocument {
