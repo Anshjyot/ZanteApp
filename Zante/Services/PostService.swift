@@ -81,35 +81,42 @@ class PostService: ObservableObject {
 
 
   static func loadAllUsersPosts(onSuccess: @escaping(_ posts: [PostModel]) -> Void) {
-      AuthService.storeRoot.collection("posts").getDocuments { (querySnapshot, error) in
-          guard let snapshot = querySnapshot else {
-              print("Error fetching documents: \(error!)")
-              return
-          }
+        var allPosts = [PostModel]()
 
-          var posts = [PostModel]()
+        // First, fetch all users
+        AuthService.storeRoot.collection("users").getDocuments { (usersSnapshot, error) in
+            guard let usersSnapshot = usersSnapshot else {
+                print("Error fetching users: \(error?.localizedDescription ?? "")")
+                return
+            }
 
-          for document in snapshot.documents {
-              let userId = document.documentID
-              PostsUserId(userId: userId).collection("posts").getDocuments { (querySnapshot, error) in
-                  guard let snapshot = querySnapshot else {
-                      print("Error fetching documents: \(error!)")
-                      return
-                  }
+            // Then, for each user, fetch their posts
+            for userDoc in usersSnapshot.documents {
+                let userId = userDoc.documentID
+                PostsUserId(userId: userId).collection("posts").getDocuments { (postsSnapshot, error) in
+                    guard let postsSnapshot = postsSnapshot else {
+                        print("Error fetching posts for user \(userId): \(error?.localizedDescription ?? "")")
+                        return
+                    }
 
-                  for document in snapshot.documents {
-                      let dict = document.data()
-                      guard let decoded = try? PostModel.init(fromDictionary: dict) else {
-                          continue
-                      }
-                      posts.append(decoded)
-                  }
+                    // Finally, for each post, decode it to a PostModel object and add it to the list of all posts
+                    for postDoc in postsSnapshot.documents {
+                        let dict = postDoc.data()
+                        guard let post = try? PostModel(fromDictionary: dict) else {
+                            print("Error decoding post: \(dict)")
+                            continue
+                        }
 
-                  onSuccess(posts)
-              }
-          }
-      }
-  }
+                        allPosts.append(post)
+                    }
+
+                    onSuccess(allPosts)
+                }
+            }
+        }
+    }
+
+
 
 
   /*

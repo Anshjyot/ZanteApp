@@ -60,6 +60,7 @@
 		85541E7129BA1DEF006785EB /* ZanteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85541E7029BA1DEF006785EB /* ZanteTests.swift */; };
 		85541E7B29BA1DEF006785EB /* ZanteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85541E7A29BA1DEF006785EB /* ZanteUITests.swift */; };
 		85541E7D29BA1DEF006785EB /* ZanteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85541E7C29BA1DEF006785EB /* ZanteUITestsLaunchTests.swift */; };
+		8584808F2A03AA1300DB72FA /* ZanteLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8584808E2A03AA1300DB72FA /* ZanteLogo.png */; };
 		858C26CA29CC8ABE00750253 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26C929CC8ABE00750253 /* SessionStore.swift */; };
 		858C26CC29CC903400750253 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26CB29CC903400750253 /* HomeView.swift */; };
 		858C26CE29CC998200750253 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26CD29CC998200750253 /* Search.swift */; };
@@ -135,6 +136,7 @@
 		85541E7629BA1DEF006785EB /* ZanteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZanteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		85541E7A29BA1DEF006785EB /* ZanteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZanteUITests.swift; sourceTree = "<group>"; };
 		85541E7C29BA1DEF006785EB /* ZanteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZanteUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8584808E2A03AA1300DB72FA /* ZanteLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZanteLogo.png; sourceTree = "<group>"; };
 		858C26C929CC8ABE00750253 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		858C26CB29CC903400750253 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		858C26CD29CC998200750253 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				85541E6129BA1DEA006785EB /* ContentView.swift */,
 				853AAD8C29C0D32E00EFB666 /* MainPage.swift */,
 				85541E6329BA1DEE006785EB /* Assets.xcassets */,
+				8584808E2A03AA1300DB72FA /* ZanteLogo.png */,
 				85541E6529BA1DEE006785EB /* Preview Content */,
 			);
 			path = Zante;
@@ -501,6 +504,7 @@
 				85541E6729BA1DEE006785EB /* Preview Assets.xcassets in Resources */,
 				85928D0F29C359D100449D12 /* GoogleService-Info.plist in Resources */,
 				85541E6429BA1DEE006785EB /* Assets.xcassets in Resources */,
+				8584808F2A03AA1300DB72FA /* ZanteLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

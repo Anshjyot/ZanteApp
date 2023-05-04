@@ -59,13 +59,13 @@ class ProfileService : ObservableObject {
     followers(userId: userId)
   }
 
-  func loadAllPosts() {
-      isLoading = true
-      PostService.loadAllUsersPosts { posts in
-          self.allPosts = posts
-          self.isLoading = false
-      }
-  }
+
+  func loadAllUsersPosts() {
+       PostService.loadAllUsersPosts { (posts) in
+           self.posts = posts
+       }
+   }
+
 
 
 
