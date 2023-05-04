@@ -1,34 +1,29 @@
-//
-//  AudioPlayerView.swift
-//  Zante
-//
-//  Created by Anshjyot Singh on 20/04/2023.
-//
-
 import SwiftUI
 import AVKit
 
 struct AudioPlayerView: View {
     let audioURL: URL
-    @State private var audioPlayer: AVPlayer?
+    @State private var player: AVPlayer?
 
     var body: some View {
         VStack {
-            Button(action: {
-                if let player = audioPlayer {
-                    player.play()
-                } else {
-                    audioPlayer = AVPlayer(url: audioURL)
-                    audioPlayer?.play()
+            if player != nil {
+                VideoPlayer(player: player)
+                .frame(height: 40)
+                .onAppear {
+                    player?.play()
                 }
-            }) {
-                Image(systemName: "play.circle.fill")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                    .aspectRatio(contentMode: .fit)
-            }
+                .onDisappear {
+                    player?.pause()
+                }
         }
     }
+    .onAppear {
+        self.player = AVPlayer(url: audioURL)
+    }
+    .onDisappear {
+        self.player = nil
+    }
 }
-
+}
 

@@ -1,5 +1,5 @@
 //
-//  Add.swift
+//  Post.swift
 //  Zante
 //
 //  Created by Anshjyot Singh on 23/03/2023.
@@ -17,6 +17,8 @@ struct Post: View {
   @State private var showingAlert = false
   @State private var alertTitle: String = "Failed -,-"
   @State private var text = ""
+  @State private var audioURL: URL?
+  @State private var isAudioFile: Bool = false
 
 
   func loadImage() {
@@ -118,6 +120,5 @@ struct Post: View {
 
     }
 }
-
 
 

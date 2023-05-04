@@ -61,6 +61,7 @@
 		85541E7B29BA1DEF006785EB /* ZanteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85541E7A29BA1DEF006785EB /* ZanteUITests.swift */; };
 		85541E7D29BA1DEF006785EB /* ZanteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85541E7C29BA1DEF006785EB /* ZanteUITestsLaunchTests.swift */; };
 		8584808F2A03AA1300DB72FA /* ZanteLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8584808E2A03AA1300DB72FA /* ZanteLogo.png */; };
+		858480922A03E99A00DB72FA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 858480902A03E99900DB72FA /* Localizable.strings */; };
 		858C26CA29CC8ABE00750253 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26C929CC8ABE00750253 /* SessionStore.swift */; };
 		858C26CC29CC903400750253 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26CB29CC903400750253 /* HomeView.swift */; };
 		858C26CE29CC998200750253 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C26CD29CC998200750253 /* Search.swift */; };
@@ -137,6 +138,7 @@
 		85541E7A29BA1DEF006785EB /* ZanteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZanteUITests.swift; sourceTree = "<group>"; };
 		85541E7C29BA1DEF006785EB /* ZanteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZanteUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8584808E2A03AA1300DB72FA /* ZanteLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZanteLogo.png; sourceTree = "<group>"; };
+		858480912A03E99A00DB72FA /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		858C26C929CC8ABE00750253 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		858C26CB29CC903400750253 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		858C26CD29CC998200750253 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 		85541E5E29BA1DEA006785EB /* Zante */ = {
 			isa = PBXGroup;
 			children = (
+				858480902A03E99900DB72FA /* Localizable.strings */,
 				85928D1529C79B1800449D12 /* Services */,
 				85928D1029C7922C00449D12 /* Model */,
 				85928D0E29C359D100449D12 /* GoogleService-Info.plist */,
@@ -479,6 +482,7 @@
 			knownRegions = (
 				en,
 				Base,
+				da,
 			);
 			mainGroup = 85541E5329BA1DEA006785EB;
 			packageReferences = (
@@ -501,6 +505,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				858480922A03E99A00DB72FA /* Localizable.strings in Resources */,
 				85541E6729BA1DEE006785EB /* Preview Assets.xcassets in Resources */,
 				85928D0F29C359D100449D12 /* GoogleService-Info.plist in Resources */,
 				85541E6429BA1DEE006785EB /* Assets.xcassets in Resources */,
@@ -608,6 +613,17 @@
 			targetProxy = 85541E7729BA1DEF006785EB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		858480902A03E99900DB72FA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				858480912A03E99A00DB72FA /* da */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		85541E7E29BA1DEF006785EB /* Debug */ = {
