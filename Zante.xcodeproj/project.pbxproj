@@ -160,6 +160,7 @@
 		85A9901229CF7DD500AD6E31 /* PostCardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardService.swift; sourceTree = "<group>"; };
 		85A9901429CF8BB200AD6E31 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		85A9901629CF8CE500AD6E31 /* PostCardImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardImage.swift; sourceTree = "<group>"; };
+		85C0B2E82A043F34002F7A4C /* Script.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Script.sh; sourceTree = "<group>"; };
 		85EC1AF329DAEC1D0076490E /* PostCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCard.swift; sourceTree = "<group>"; };
 		85F25A9529F17006001BC878 /* AudioPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerView.swift; sourceTree = "<group>"; };
 		85F25A9729F1706D001BC878 /* AudioPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPicker.swift; sourceTree = "<group>"; };
@@ -268,6 +269,7 @@
 		85541E5329BA1DEA006785EB = {
 			isa = PBXGroup;
 			children = (
+				85C0B2E82A043F34002F7A4C /* Script.sh */,
 				85541E5E29BA1DEA006785EB /* Zante */,
 				85541E6F29BA1DEF006785EB /* ZanteTests */,
 				85541E7929BA1DEF006785EB /* ZanteUITests */,
