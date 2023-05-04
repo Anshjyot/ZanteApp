@@ -4,7 +4,6 @@
 //
 //  Created by Anshjyot Singh on 09/04/2023.
 //
-
 import SwiftUI
 
 struct Comment: View {
@@ -41,5 +40,3 @@ struct Comment: View {
 
     }
 }
-
-

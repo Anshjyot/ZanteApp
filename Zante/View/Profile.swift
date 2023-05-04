@@ -22,9 +22,14 @@ struct Profile: View {
         }
         NavigationLink(destination: EditProfile(session: self.session.session), isActive: $isLinkActive) {
           Button(action: {self.isLinkActive = true}){
-            Text("Edit Profile").font(.title)
-              .modifier(ButtonModifiers())
-          }.padding(.horizontal)
+            Text("Edit Profile")
+                  .foregroundColor(.white)
+                  .padding(.horizontal, 120)
+                  .padding(.vertical, 5)
+          }
+          .background(Color.blue)
+          .cornerRadius(10)
+          .padding(.horizontal)
         }
         Picker("", selection: $selection) {
           Image(systemName: "circle.grid.2x2.fill").tag(0)

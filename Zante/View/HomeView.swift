@@ -5,13 +5,6 @@
 //  Created by Vandad Azar on 23/03/2023.
 //
 
-//
-//  ContentView.swift
-//  ZANTEVIDEO9
-//
-//  Created by Vandad Azar on 23/03/2023.
-//
-
 import SwiftUI
 
 struct HomeView: View{
@@ -91,12 +84,3 @@ struct CustomTabView: View{
     }
 
 }
-
-/*
- struct HomeView_Previews: PreviewProvider {
- static var previews: some View {
- HomeView()
- }
- }
- */
-
