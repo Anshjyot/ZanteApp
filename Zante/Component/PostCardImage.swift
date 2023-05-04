@@ -95,7 +95,7 @@ struct PostCardImage: View {
               try AVAudioSession.sharedInstance().setCategory(.playback)
               try AVAudioSession.sharedInstance().setActive(true)
           } catch {
-              print("Failed to set up audio session: \(error)")
+              print("Failed to set up audio session:  \(error)")
           }
       }
 
