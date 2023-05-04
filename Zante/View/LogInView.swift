@@ -65,25 +65,41 @@ struct LogInView: View {
       NavigationView {
 
         VStack(spacing: 20){
-          Image(systemName: "music.note").font(.system(size: 60, weight: .black, design: .default))
+          Image("ZanteLogo")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 600, height: 250)
+                .scaledToFill()
+            
 
           VStack(alignment: .leading){
             Text("Welcome Back").font(.system(size: 34, weight: .heavy))
             Text("Log In to Continue").font(.system(size: 17, weight: .medium))
+                  .padding(.leading, 45)
           }
+          .foregroundColor(.blue)
 
             FormField(value: $email, icon: "envelope.fill", placeholder: "E-mail")
 
             FormField(value: $password, icon: "lock.fill", placeholder: "Password", isSecure: true)
 
-          Button(action: {logIn()
-            listen()
-          }){
-              Text("Log In").font(.title) 
-                .modifier(ButtonModifiers())
-            }.alert(isPresented: $showingAlert) {
-              Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
+            Button(action: {
+                logIn()
+                listen()
+            }) {
+                Text("Log In")
+                    .font(.title)
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 130)
+                    .padding(.vertical, 5)
+            
             }
+            .background(Color.blue)
+            .cornerRadius(10)
+            .alert(isPresented: $showingAlert) {
+                Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
+            }
+
 
           HStack{
             Text("New?")

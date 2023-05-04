@@ -71,6 +71,7 @@ struct Post: View {
     var body: some View {
       VStack{
         Text("Upload a post").font(.largeTitle)
+              .foregroundColor(.blue)
 
         VStack{
           if postImage != nil {
@@ -80,7 +81,7 @@ struct Post: View {
                 self.showingSheet = true
               }
           } else {
-            Image(systemName: "photo.fill").resizable()
+            Image(systemName: "rectangle.and.paperclip").resizable()
               .frame(width: 300, height: 200)
               .onTapGesture {
                 self.showingSheet = true
@@ -89,15 +90,22 @@ struct Post: View {
         }
 
         TextView(text: $text)
-          .frame(height: 200)
+          .frame(height: 100)
           .padding(4)
           .background(RoundedRectangle(cornerRadius: 0).stroke(Color.black))
           .padding(.horizontal)
 
 
         Button(action: uploadPost) {
-          Text("Upload Post").font(.title).modifier(ButtonModifiers())
-        }.alert(isPresented: $showingAlert) {
+          Text("Upload Post")              .font(.title)
+            .foregroundColor(.white)
+            .padding(.horizontal, 120)
+            .padding(.vertical, 5)
+            
+        }
+        .background(Color.blue)
+        .cornerRadius(10)
+        .alert(isPresented: $showingAlert) {
           Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
         }
       }.padding()
@@ -121,4 +129,10 @@ struct Post: View {
     }
 }
 
+
+struct Post_preview: PreviewProvider{
+    static var previews: some View{
+        Post()
+    }
+}
 
