@@ -63,13 +63,9 @@ struct SignUpView: View {
     }
   }
 
-
-
     var body: some View {
       ScrollView {
         VStack(spacing: 20){
-
-
             
           VStack{
               Spacer();
