@@ -68,36 +68,38 @@ struct SignUpView: View {
     var body: some View {
       ScrollView {
         VStack(spacing: 20){
-          Image(systemName: "music.note").font(.system(size: 60, weight: .black, design: .default))
 
-          VStack(alignment: .leading){
-            Text("Hi there").font(.system(size: 34, weight: .heavy))
-            Text("Sign Up").font(.system(size: 17, weight: .medium))
-          }
 
+            
           VStack{
+              Spacer();
+              Text("Tap to choose profile picture:").font(.system(size: 18, weight: .medium))
+                  .foregroundColor(.blue)
+              
             Group {
               if profileImage != nil { profileImage!.resizable()
                   .clipShape(Circle())
-                  .frame(width: 150, height: 150)
+                  .frame(width: 160, height: 160)
                   .padding(.top, 20)
                   .onTapGesture {
                     self.showingSheet = true
-
                   }
 
               } else {
                 Image(systemName: "person.circle.fill")
                   .resizable()
                   .clipShape(Circle())
-                  .frame(width: 100, height: 100)
+                  .frame(width: 160, height: 160)
                   .padding(.top, 20)
                   .onTapGesture {
                     self.showingSheet = true
                   }
               }
             }
+              
+
           }
+          .padding(.top, 50)
 
           Group {
             FormField(value: $username, icon: "person.fill", placeholder: "Username")
@@ -113,9 +115,15 @@ struct SignUpView: View {
             self.isLinkActive = true
           }){
             Text("Sign Up").font(.title)
-              .modifier(ButtonModifiers())
+                  .font(.title)
+                  .foregroundColor(.white)
+                  .padding(.horizontal, 120)
+                  .padding(.vertical, 5)
           }
-            }.alert(isPresented: $showingAlert) {
+            }
+          .background(Color.blue)
+          .cornerRadius(10)
+          .alert(isPresented: $showingAlert) {
               Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
             }
 
