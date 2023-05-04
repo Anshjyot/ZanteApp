@@ -116,6 +116,20 @@ class PostService: ObservableObject {
         }
     }
 
+  static func uploadAudioPost(caption: String, audioData: Data, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+      guard let userId = Auth.auth().currentUser?.uid else {
+        return
+      }
+
+      let postId = PostService.PostsUserId(userId: userId).collection("posts").document().documentID
+      let storagePostRef = StorageService.storagePostID(postId: postId)
+      let metaData = StorageMetadata()
+      metaData.contentType = "audio/mpeg"
+
+      StorageService.saveAudioPost(userId: userId, caption: caption, postId: postId, audioData: audioData, metadata: metaData, storagePostRef: storagePostRef, onSuccess: onSuccess, onError: onError)
+  }
+
+
 
 
 

@@ -240,6 +240,38 @@ class StorageService {
 
   }
 
+  static func saveAudioPost(userId: String, caption: String, postId: String, audioData: Data, metadata: StorageMetadata, storagePostRef: StorageReference, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+      storagePostRef.putData(audioData, metadata: metadata) { (storageMetaData, error) in
+          if error != nil {
+              onError(error!.localizedDescription)
+              return
+          }
+
+          storagePostRef.downloadURL { (url, error) in
+              if let metaImageUrl = url?.absoluteString {
+                  let firestorePostRef = PostService.PostsUserId(userId: userId).collection("posts").document(postId)
+
+                  let postModel = PostModel(caption: caption, likes: [String: Bool](), location: "", ownerId: userId, postId: postId, username: "", profile: "", mediaUrl: metaImageUrl, date: Date().timeIntervalSince1970, likeCount: 0, mediaType: "audio")
+
+                guard let dict = try? postModel.toDictionary() else {
+                    onError("Error converting PostModel to dictionary")
+                    return
+                }
+
+
+                  firestorePostRef.setData(dict) { (error) in
+                      if error != nil {
+                          onError(error!.localizedDescription)
+                          return
+                      }
+
+                      onSuccess()
+                  }
+              }
+          }
+      }
+  }
+
   }
 
 

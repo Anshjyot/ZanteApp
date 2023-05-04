@@ -18,6 +18,14 @@ struct PostModel: Encodable, Decodable {
   var mediaUrl: String
   var date: Double
   var likeCount: Int
+  var mediaType: String?
+
+  func toDictionary() throws -> [String: Any] {
+          let encoder = JSONEncoder()
+          let data = try encoder.encode(self)
+          let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
+          return json ?? [:]
+      }
 }
 
 
