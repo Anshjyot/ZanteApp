@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="Zante/en.lproj/Localizable.strings" datatype="plaintext" source-language="en" target-language="da">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="14.2" build-num="14C18"/>
+    </header>
+    <body>
+      <trans-unit id="%lld" xml:space="preserve">
+        <source>%lld</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="%lld likes" xml:space="preserve">
+        <source>%lld likes</source>
+        <target/>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Add comment..." xml:space="preserve">
+        <source>Add comment...</source>
+        <target>Tilføj kommentar</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="All Posts" xml:space="preserve">
+        <source>All Posts</source>
+        <target>Alle Indlæg</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Changes will appear when you log in again" xml:space="preserve">
+        <source>Changes will appear when you log in again</source>
+        <target>Ændringer vises, når du logger på igen</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Chat with %@" xml:space="preserve">
+        <source>Chat with %@</source>
+        <target>Chatte med</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Choose Photo" xml:space="preserve">
+        <source>Choose Photo</source>
+        <target>Vælg billede</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Comments" xml:space="preserve">
+        <source>Comments</source>
+        <target>Kommentarer</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Create an Account." xml:space="preserve">
+        <source>Create an Account.</source>
+        <target>Opret en konto</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Edit" xml:space="preserve">
+        <source>Edit</source>
+        <target>Rediger</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Edit Profile" xml:space="preserve">
+        <source>Edit Profile</source>
+        <target>Redigere Profil</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Follow" xml:space="preserve">
+        <source>Follow</source>
+        <target>Følg</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Followers" xml:space="preserve">
+        <source>Followers</source>
+        <target>Følgere</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Following" xml:space="preserve">
+        <source>Following</source>
+        <target>Følger</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Hi there" xml:space="preserve">
+        <source>Hi there</source>
+        <target>Hej</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Lee Chin" xml:space="preserve">
+        <source>Lee Chin</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Liked by Alex Ra and 10 others" xml:space="preserve">
+        <source>Liked by Alex Ra and 10 others</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Log In" xml:space="preserve">
+        <source>Log In</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Log In to Continue" xml:space="preserve">
+        <source>Log In to Continue</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="New?" xml:space="preserve">
+        <source>New?</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="OK" xml:space="preserve">
+        <source>OK</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Posts" xml:space="preserve">
+        <source>Posts</source>
+        <target>Indlæg</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Search Users here" xml:space="preserve">
+        <source>Search Users here</source>
+        <target>Søg Brugere</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Sign Up" xml:space="preserve">
+        <source>Sign Up</source>
+        <target>Registrer</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Take a Photo" xml:space="preserve">
+        <source>Take a Photo</source>
+        <target>Tag et Billede</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Type your message here..." xml:space="preserve">
+        <source>Type your message here...</source>
+        <target>Skriv din besked her...</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Unfollow" xml:space="preserve">
+        <source>Unfollow</source>
+        <target>Følg ikke længere</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Upload Post" xml:space="preserve">
+        <source>Upload Post</source>
+        <target>Upload indlæg</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Upload a post" xml:space="preserve">
+        <source>Upload a post</source>
+        <target>Upload et indlæg</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="User Search" xml:space="preserve">
+        <source>User Search</source>
+        <target>Søg efter Brugere</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="View Comments" xml:space="preserve">
+        <source>View Comments</source>
+        <target>Se kommentarer</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Welcome Back" xml:space="preserve">
+        <source>Welcome Back</source>
+        <target>Velkommen tilbage</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="😆" xml:space="preserve">
+        <source>😆</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="😍" xml:space="preserve">
+        <source>😍</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Zante/en.lproj/Zante-InfoPlist.strings" datatype="plaintext" source-language="en" target-language="da">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="14.2" build-num="14C18"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>Zante</source>
+        <note>Bundle name</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
