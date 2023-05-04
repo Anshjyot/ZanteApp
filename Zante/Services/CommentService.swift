@@ -4,10 +4,8 @@
 //
 //  Created by Anshjyot Singh on 09/04/2023.
 //
-
 import Foundation
 import Firebase
-import FirebaseStorage
 
 class CommentService: ObservableObject {
 
@@ -23,14 +21,15 @@ class CommentService: ObservableObject {
     return commentsRef.document(postId)
   }
 
-  func postComment(comment: String, username: String, profile: String,
-ownerId: String, postId: String, onSuccess: @escaping() -> Void,
-                   onError: @escaping(_ error: String) -> Void) {
-    let comment = CommentModel(profile: profile, postId: postId, username: username, date: Date().timeIntervalSince1970, comment: comment, ownerId: ownerId)
+    
+    func postComment(comment: String, username: String, profile: String,
+    ownerId: String, postId: String, onSuccess: @escaping() -> Void,
+                       onError: @escaping(_ error: String) -> Void) {
+        let comment = CommentModel(profile: profile, postId: postId, username: username, date: Date().timeIntervalSince1970, comment: comment, ownerId: ownerId)
 
-    guard let dict = try? comment.asDictionary() else {
-      return
-    }
+        guard let dict = try? comment.asDictionary() else {
+            return
+        }
 
     CommentService.commentsId(postId: postId).collection("comments").addDocument(data: dict) {
       (err) in
@@ -125,4 +124,3 @@ ownerId: String, postId: String, onSuccess: @escaping() -> Void,
     }
   }
 }
-

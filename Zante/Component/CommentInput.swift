@@ -4,7 +4,6 @@
 //
 //  Created by Anshjyot Singh on 09/04/2023.
 //
-
 import SwiftUI
 import SDWebImageSwiftUI
 
@@ -31,13 +30,24 @@ struct CommentInput: View {
     }
   }
 
-  func sendComment() {
-    if !text.isEmpty {
-      commentService.addComment(comment: text) {
-        self.text = ""
-      }
+    
+    func sendComment() {
+        if !text.isEmpty {
+            guard let username = session.session?.userName,
+                  let profile = session.session?.profileImageURL else {
+                // handle missing session values
+                return
+            }
+            let ownerId = commentService.post?.ownerId ?? ""
+            let postId = commentService.post?.postId ?? ""
+            commentService.postComment(comment: text, username: username, profile: profile, ownerId: ownerId, postId: postId) {
+                self.text = ""
+            } onError: { error in
+                // handle error
+            }
+        }
     }
-  }
+
 
 
     var body: some View {
@@ -64,5 +74,3 @@ struct CommentInput: View {
       }
     }
 }
-
-
