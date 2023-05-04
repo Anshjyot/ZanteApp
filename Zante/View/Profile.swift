@@ -60,23 +60,16 @@ struct Profile: View {
       }
     }
     .toolbar {
-      ToolbarItemGroup(placement: .navigationBarLeading) {
-        NavigationLink(destination: UserProfile(), isActive: $isProfileActive) {
-          EmptyView()
-        }
-        Button(action: {
-          self.isProfileActive = true
-        }) {
-          Image(systemName: "person.fill")
-        }
-      }
-      ToolbarItemGroup(placement: .navigationBarTrailing) {
+        ToolbarItemGroup(placement: .navigationBarTrailing) {
         Button(action: {
           self.session.logout()
         }) {
           Image(systemName: "arrow.right.circle.fill")
         }.onAppear{
-          self.profileService.loadUserPosts(userId: Auth.auth().currentUser!.uid)
+          if let currentUser = Auth.auth().currentUser {
+              self.profileService.loadUserPosts(userId: currentUser.uid)
+          }
+
         }
       }
     }

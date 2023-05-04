@@ -40,6 +40,7 @@ class AuthService {
 
   }
 
+
   static func logIn(email: String, password: String, onSuccess: @escaping (_ user: User) -> Void, onError: @escaping(_ errorMessage: String) -> Void ) { Auth.auth().signIn(withEmail: email, password: password) {
     (authData, error) in
 
@@ -61,3 +62,4 @@ class AuthService {
   }
   }
 }
+

@@ -4,7 +4,6 @@
 //
 //  Created by Anshjyot Singh on 03/04/2023.
 //
-
 import SwiftUI
 
 struct PostCard: View {
@@ -65,5 +64,8 @@ struct PostCard: View {
         }
       }
     }
+
+
+
 
 

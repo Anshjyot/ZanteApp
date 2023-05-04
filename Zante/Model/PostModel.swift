@@ -4,7 +4,6 @@
 //
 //  Created by Anshjyot Singh on 23/03/2023.
 //
-
 import Foundation
 
 struct PostModel: Encodable, Decodable {
@@ -19,5 +18,7 @@ struct PostModel: Encodable, Decodable {
   var mediaUrl: String
   var date: Double
   var likeCount: Int
-  var audioURL: String?
 }
+
+
+

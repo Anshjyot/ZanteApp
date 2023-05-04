@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Search: View {
       var body: some View {
-        Text("Search")
+       UserProfile()
       }
   }
 
@@ -19,3 +19,4 @@ struct Search_Previews: PreviewProvider {
         Search()
     }
 }
+

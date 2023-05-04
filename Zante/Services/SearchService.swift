@@ -21,7 +21,7 @@ class SearchService{
       var users = [User]()
       for document in snap.documents {
         let dict = document.data()
-        
+
         guard let decoded = try? User.init(fromDictionary: dict) else {
           return
         }
@@ -35,3 +35,4 @@ class SearchService{
     }
     }
 }
+

@@ -78,7 +78,7 @@ struct EditProfile: View {
     })
 
     self.clear()
-    
+
   }
 
 
@@ -142,4 +142,5 @@ struct EditProfile: View {
 
     }
 }
+
 

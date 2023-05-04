@@ -44,6 +44,9 @@
 		85361E7729F2F25200A209E7 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 85361E7629F2F25200A209E7 /* FirebaseRemoteConfigSwift */; };
 		85361E7929F2F25200A209E7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 85361E7829F2F25200A209E7 /* FirebaseStorage */; };
 		85361E7B29F2F25200A209E7 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 85361E7A29F2F25200A209E7 /* FirebaseStorageCombine-Community */; };
+		85361E7D29F330A900A209E7 /* TextFieldWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85361E7C29F330A900A209E7 /* TextFieldWrapper.swift */; };
+		85361E7F29FC556B00A209E7 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85361E7E29FC556B00A209E7 /* MessageView.swift */; };
+		85361E8129FD24F700A209E7 /* MessageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85361E8029FD24F700A209E7 /* MessageButton.swift */; };
 		853AAD8D29C0D32E00EFB666 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AAD8C29C0D32E00EFB666 /* MainPage.swift */; };
 		853AAD9029C20EAF00EFB666 /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AAD8F29C20EAF00EFB666 /* FormField.swift */; };
 		853AAD9329C212CE00EFB666 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853AAD9229C212CE00EFB666 /* LogInView.swift */; };
@@ -113,6 +116,9 @@
 		8521267629E402F500677819 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		8521267829E403D700677819 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		8521267A29E4045C00677819 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
+		85361E7C29F330A900A209E7 /* TextFieldWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWrapper.swift; sourceTree = "<group>"; };
+		85361E7E29FC556B00A209E7 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		85361E8029FD24F700A209E7 /* MessageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageButton.swift; sourceTree = "<group>"; };
 		853AAD8C29C0D32E00EFB666 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		853AAD8F29C20EAF00EFB666 /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
 		853AAD9229C212CE00EFB666 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
@@ -219,6 +225,8 @@
 				8521266629E2CE6900677819 /* FollowButton.swift */,
 				8521266E29E333DA00677819 /* CommentCard.swift */,
 				8521267029E33D4A00677819 /* CommentInput.swift */,
+				85361E7C29F330A900A209E7 /* TextFieldWrapper.swift */,
+				85361E8029FD24F700A209E7 /* MessageButton.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -238,6 +246,7 @@
 				8521267229E33FE100677819 /* Comment.swift */,
 				8521267429E3638600677819 /* EditProfile.swift */,
 				85F25A9529F17006001BC878 /* AudioPlayerView.swift */,
+				85361E7E29FC556B00A209E7 /* MessageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -533,6 +542,7 @@
 				85A8C78D29E1FAFE0081FD5D /* UserProfile.swift in Sources */,
 				85541E6229BA1DEA006785EB /* ContentView.swift in Sources */,
 				858C26D629CC99D600750253 /* Profile.swift in Sources */,
+				85361E8129FD24F700A209E7 /* MessageButton.swift in Sources */,
 				85541E6029BA1DEA006785EB /* ZanteApp.swift in Sources */,
 				85EC1AF429DAEC1D0076490E /* PostCard.swift in Sources */,
 				8521266729E2CE6900677819 /* FollowButton.swift in Sources */,
@@ -544,6 +554,7 @@
 				8521267329E33FE100677819 /* Comment.swift in Sources */,
 				85A8C78929E1F7C70081FD5D /* SearchBar.swift in Sources */,
 				8521266F29E333DA00677819 /* CommentCard.swift in Sources */,
+				85361E7F29FC556B00A209E7 /* MessageView.swift in Sources */,
 				85928D1429C7930200449D12 /* Extensions.swift in Sources */,
 				85A9901729CF8CE500AD6E31 /* PostCardImage.swift in Sources */,
 				853AAD9B29C2322A00EFB666 /* SignUpView.swift in Sources */,
@@ -557,6 +568,7 @@
 				858C26D229CC999F00750253 /* Post.swift in Sources */,
 				85A8C78B29E1F8DC0081FD5D /* SearchService.swift in Sources */,
 				853AAD8D29C0D32E00EFB666 /* MainPage.swift in Sources */,
+				85361E7D29F330A900A209E7 /* TextFieldWrapper.swift in Sources */,
 				853AAD9329C212CE00EFB666 /* LogInView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

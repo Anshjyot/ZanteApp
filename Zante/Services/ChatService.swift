@@ -104,7 +104,7 @@ class ChatService: ObservableObject {
     metaData.contentType = "image/jpg"
 
     StorageService.saveChatPhoto(messageId: messageId, recipientId: recipientId, recipientProfile: recipientProfile, recipientName: recipientName, senderProfile: senderProfile, senderId: senderId, senderUsername: senderUsername, imageData: ImageData, metaData: metaData, storageChatRef: storageChatRef, onSuccess: onSuccess, onError: onError)
-    
+
   }
 
   func getChats(userId: String, onSuccess: @escaping([ChatModel]) -> Void, onError: @escaping(_ error: String) -> Void, newChat: @escaping(ChatModel) -> Void, listener: @escaping(_ listenerHandle: ListenerRegistration) -> Void) {
@@ -183,3 +183,4 @@ class ChatService: ObservableObject {
 
   }
 }
+

@@ -9,16 +9,26 @@ import SwiftUI
 import AVKit
 
 struct AudioPlayerView: View {
-    let url: URL
+    let audioURL: URL
+    @State private var audioPlayer: AVPlayer?
 
     var body: some View {
         VStack {
-            Text("Audio Post")
-            VideoPlayer(player: AVPlayer(url: url))
-                .frame(height: 200)
-                .cornerRadius(10)
-                .padding()
+            Button(action: {
+                if let player = audioPlayer {
+                    player.play()
+                } else {
+                    audioPlayer = AVPlayer(url: audioURL)
+                    audioPlayer?.play()
+                }
+            }) {
+                Image(systemName: "play.circle.fill")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .aspectRatio(contentMode: .fit)
+            }
         }
     }
 }
+
 

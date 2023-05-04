@@ -17,7 +17,8 @@ struct MessageModel: Encodable, Decodable, Identifiable {
   var userId: String
   var profile: String
 
-  
+
 
 
 }
+

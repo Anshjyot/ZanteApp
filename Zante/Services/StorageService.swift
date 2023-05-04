@@ -4,7 +4,6 @@
 //
 //  Created by Anshjyot Singh on 19/03/2023.
 //
-
 import Foundation
 import Firebase
 import FirebaseAuth
@@ -24,14 +23,9 @@ class StorageService {
 
   static var storageChat = storageRoot.child("chat")
 
-  /*static func storagePostID(postId: String) -> StorageReference {
+  static func storagePostID(postId: String) -> StorageReference {
     return storagePost.child(postId)
-  }*/
-
-  static func storagePostID(postId: String, isImage: Bool) -> StorageReference {
-          let fileName = isImage ? "post_photo" : "post_audio"
-          return storagePost.child(postId).child(fileName)
-      }
+  }
 
   static func storagechatID(chatId: String) -> StorageReference {
     return storageChat.child(chatId)
@@ -78,6 +72,28 @@ class StorageService {
     }
   }
 
+  static func fetchAllUsers(onSuccess: @escaping(_ users: [User]) -> Void) {
+      AuthService.storeRoot.collection("users").getDocuments { (snapshot, error) in
+          guard let snap = snapshot else {
+              print("Error fetching users")
+              return
+          }
+
+          var users = [User]()
+
+          for doc in snap.documents {
+              let dict = doc.data()
+              guard let decoder = try? User.init(fromDictionary: dict) else {
+                  return
+              }
+
+              users.append(decoder)
+          }
+
+          onSuccess(users)
+      }
+  }
+
   static func saveProfileImage(userId: String, username: String, email: String, imageData: Data, metaData: StorageMetadata, storageProfileImageRef: StorageReference, onSuccess: @escaping(_ user: User) -> Void, onError: @escaping(_ errorMessage: String) -> Void ) {
 
     storageProfileImageRef.putData(imageData, metadata: metaData) {
@@ -92,10 +108,10 @@ class StorageService {
         (url, error) in
         if let metaImageURL = url?.absoluteString {
 
-           
+
 
           let firestoreUserID = AuthService.getUserID(userId: userId)
-          let user = User.init(uid: userId, email: email, profileImageURL: metaImageURL, userName: username, seachName: username.splitString(), bio: "")
+          let user = User.init(uid: userId, email: email, profileImageURL: metaImageURL, userName: username, searchName: username.splitString(), bio: "")
 
           guard let dict = try?user.asDictionary() else {return}
 
@@ -114,44 +130,68 @@ class StorageService {
   }
 
   static func savePostPhoto(userId: String, caption: String, postId: String, imageData: Data, metadata: StorageMetadata, storagePostRef: StorageReference, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void ) {
-
-      storagePostRef.putData(imageData, metadata: metadata) {
-        (StorageMetadata, error) in
-
-        if error != nil{
-          onError(error!.localizedDescription)
-          return
-        }
-
-        storagePostRef.downloadURL{
-          (url, error) in
-          if let metaImageURL = url?.absoluteString {
-            let firestorePostRef = PostService.PostsUserId(userId: userId).collection("posts").document(postId)
-
-            let post = PostModel.init(caption: caption, likes: [:], location: "", ownerId: userId, postId: postId, username: Auth.auth().currentUser!.displayName!, profile: Auth.auth().currentUser!.photoURL!.absoluteString, mediaUrl: metaImageURL, date: Date().timeIntervalSince1970, likeCount: 0)
-
-            guard let dict = try? post.asDictionary() else {return}
-
-            firestorePostRef.setData(dict) {
-              (error) in
-              if error != nil {
-                onError(error!.localizedDescription)
-                return
-              }
-
-              PostService.timelineUserId(userId: userId).collection("timeline").document(postId).setData(dict)
-
-              PostService.AllPosts.document(postId).setData(dict)
-              onSuccess()
-            }
+      // Fetch the user's data from Firestore
+      AuthService.getUserID(userId: userId).getDocument { (document, error) in
+          if let error = error {
+              onError(error.localizedDescription)
+              return
+          }
+          guard let document = document, document.exists, let userData = document.data() else {
+              onError("Error fetching user data.")
+              return
           }
 
+          // Get the username and profile URL from the fetched data
+        guard let username = userData["userName"] as? String else {
+            onError("Error getting username from user data. Data: \(userData)")
+            return
+        }
+        guard let profile = userData["profileImageURL"] as? String else {
+            onError("Error getting profile URL from user data. Data: \(userData)")
+            return
         }
 
+
+
+          // Upload the image
+          storagePostRef.putData(imageData, metadata: metadata) {
+              (StorageMetadata, error) in
+
+              if error != nil{
+                  onError(error!.localizedDescription)
+                  return
+              }
+
+              storagePostRef.downloadURL{
+                  (url, error) in
+                  if let metaImageURL = url?.absoluteString {
+                      let firestorePostRef = PostService.PostsUserId(userId: userId).collection("posts").document(postId)
+
+                      let post = PostModel.init(caption: caption, likes: [:], location: "", ownerId: userId, postId: postId, username: username, profile: profile, mediaUrl: metaImageURL, date: Date().timeIntervalSince1970, likeCount: 0)
+
+                      guard let dict = try? post.asDictionary() else {return}
+
+                      firestorePostRef.setData(dict) {
+                          (error) in
+                          if error != nil {
+                              onError(error!.localizedDescription)
+                              return
+                          }
+
+                          PostService.timelineUserId(userId: userId).collection("timeline").document(postId).setData(dict)
+
+                          PostService.AllPosts.document(postId).setData(dict)
+                          onSuccess()
+                      }
+                  }
+
+              }
+
+          }
       }
+  }
 
 
-    }
 
   static func saveChatPhoto(messageId: String, recipientId: String, recipientProfile: String, recipientName: String, senderProfile: String, senderId: String, senderUsername: String, imageData: Data, metaData: StorageMetadata, storageChatRef: StorageReference,
                             onSuccess: @escaping() -> Void, onError: @escaping(_ error: String) -> Void) {
@@ -191,61 +231,16 @@ class StorageService {
             } else {
               onError(error!.localizedDescription)
             }
-              
+
             }
         }
 
       }
     }
-    
-  }
-
-  static func savePostAudio(userId: String, caption: String, postId: String, audioData: Data, metadata: StorageMetadata, storagePostRef: StorageReference, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
-      storagePostRef.putData(audioData, metadata: metadata) { (_, error) in
-          if let error = error {
-              onError(error.localizedDescription)
-              return
-          }
-
-          storagePostRef.downloadURL { (url, error) in
-              if let error = error {
-                  onError(error.localizedDescription)
-                  return
-              }
-
-              guard let urlString = url?.absoluteString else {
-                  onError("Error while getting download URL.")
-                  return
-              }
-
-              let firestorePostRef = PostService.PostsUserId(userId: userId).collection("posts").document(postId)
-              let newPost = PostModel(caption: caption, likes: [String: Bool](), location: "", ownerId: userId, postId: postId, username: "", profile: "", mediaUrl: "", date: Date().timeIntervalSince1970, likeCount: 0, audioURL: urlString)
-
-              guard let dict = try? newPost.asDictionary() else {
-                  return
-              }
-
-            firestorePostRef.setData(dict) { (error) in
-              if let error = error {
-                onError(error.localizedDescription)
-              } else {
-                PostService.AllPosts.document(postId).setData(dict)
-                PostService.timelineUserId(userId: userId).collection("timeline").document(postId).setData(dict) { (error) in
-                    if let error = error {
-                        onError(error.localizedDescription)
-                    } else {
-                        onSuccess()
-                    }
-                }
-            }
-        }
-    }
-}
-}
-
-
-
 
   }
+
+  }
+
 
 
