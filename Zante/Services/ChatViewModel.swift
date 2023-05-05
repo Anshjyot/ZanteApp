@@ -179,7 +179,7 @@ class ChatViewModel: ObservableObject {
       onSuccess(messages)
     }
 
-    listener(listenerMessag e)
+    listener(listenerMessage)
 
   }
 }
