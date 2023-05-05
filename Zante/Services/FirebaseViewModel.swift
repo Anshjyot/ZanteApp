@@ -3,7 +3,8 @@
 //  Zante
 //
 //  Created by Anshjyot Singh on 19/03/2023.
-//
+//https://stackoverflow.com/questions/67318879/swift-and-firebase-value-of-type-user-has-no-member-asdict
+
 import Foundation
 import Firebase
 import FirebaseAuth
@@ -11,7 +12,7 @@ import FirebaseStorage
 
 
 
-class StorageService {
+class FirebaseViewModel {
 
   static var storage = Storage.storage()
 
@@ -62,7 +63,7 @@ class StorageService {
             }
           }
 
-          let firestoreUserID = AuthService.getUserID(userId: userId)
+          let firestoreUserID = AuthenticationViewModel.getUserID(userId: userId)
 
           firestoreUserID.updateData([
             "profileImageUrl": metaImageURL, "username": username, "bio": bio
@@ -73,7 +74,7 @@ class StorageService {
   }
 
   static func fetchAllUsers(onSuccess: @escaping(_ users: [User]) -> Void) {
-      AuthService.storeRoot.collection("users").getDocuments { (snapshot, error) in
+    AuthenticationViewModel.storeRoot.collection("users").getDocuments { (snapshot, error) in
           guard let snap = snapshot else {
               print("Error fetching users")
               return
@@ -110,7 +111,7 @@ class StorageService {
 
 
 
-          let firestoreUserID = AuthService.getUserID(userId: userId)
+          let firestoreUserID = AuthenticationViewModel.getUserID(userId: userId)
           let user = User.init(uid: userId, email: email, profileImageURL: metaImageURL, userName: username, searchName: username.splitString(), bio: "")
 
           guard let dict = try?user.asDictionary() else {return}
@@ -131,7 +132,7 @@ class StorageService {
 
   static func savePostPhoto(userId: String, caption: String, postId: String, imageData: Data, metadata: StorageMetadata, storagePostRef: StorageReference, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void ) {
       // Fetch the user's data from Firestore
-      AuthService.getUserID(userId: userId).getDocument { (document, error) in
+    AuthenticationViewModel.getUserID(userId: userId).getDocument { (document, error) in
           if let error = error {
               onError(error.localizedDescription)
               return
@@ -165,7 +166,7 @@ class StorageService {
               storagePostRef.downloadURL{
                   (url, error) in
                   if let metaImageURL = url?.absoluteString {
-                      let firestorePostRef = PostService.PostsUserId(userId: userId).collection("posts").document(postId)
+                      let firestorePostRef = PostingViewModel.PostsUserId(userId: userId).collection("posts").document(postId)
 
                       let post = PostModel.init(caption: caption, likes: [:], location: "", ownerId: userId, postId: postId, username: username, profile: profile, mediaUrl: metaImageURL, date: Date().timeIntervalSince1970, likeCount: 0)
 
@@ -178,9 +179,9 @@ class StorageService {
                               return
                           }
 
-                          PostService.timelineUserId(userId: userId).collection("timeline").document(postId).setData(dict)
+                        PostingViewModel.timelineUserId(userId: userId).collection("timeline").document(postId).setData(dict)
 
-                          PostService.AllPosts.document(postId).setData(dict)
+                        PostingViewModel.AllPosts.document(postId).setData(dict)
                           onSuccess()
                       }
                   }
@@ -210,10 +211,10 @@ class StorageService {
           let chat = ChatModel(messageId: messageId, textMessage: "", profile: senderProfile, photoUrl: metaImageURL, sender: senderId, username: senderUsername, timestamp: Date().timeIntervalSince1970, isPhoto: true)
 
           guard let dict = try? chat.asDictionary() else {return}
-          ChatService.conversation(sender: senderId, recipient: recipientId).document(messageId).setData(dict) {
+          ChatViewModel.conversation(sender: senderId, recipient: recipientId).document(messageId).setData(dict) {
             (error) in
             if error == nil {
-              ChatService.conversation(sender: recipientId, recipient: senderId).document(messageId).setData(dict)
+              ChatViewModel.conversation(sender: recipientId, recipient: senderId).document(messageId).setData(dict)
 
               let senderMessage = MessageModel(lastMessage: "", username: senderUsername, isPhoto: true, timestamp: Date().timeIntervalSince1970, userId: senderId, profile: senderProfile)
 
@@ -224,8 +225,8 @@ class StorageService {
 
               guard let recipientDict = try? recipientMessage.asDictionary() else {return}
 
-              ChatService.messagesId(senderId: senderId, recipientId: recipientId).setData(senderDict)
-              ChatService.messagesId(senderId: recipientId, recipientId: senderId).setData(recipientDict)
+              ChatViewModel.messagesId(senderId: senderId, recipientId: recipientId).setData(senderDict)
+              ChatViewModel.messagesId(senderId: recipientId, recipientId: senderId).setData(recipientDict)
 
               onSuccess()
             } else {
@@ -249,7 +250,7 @@ class StorageService {
 
           storagePostRef.downloadURL { (url, error) in
               if let metaImageUrl = url?.absoluteString {
-                  let firestorePostRef = PostService.PostsUserId(userId: userId).collection("posts").document(postId)
+                  let firestorePostRef = PostingViewModel.PostsUserId(userId: userId).collection("posts").document(postId)
 
                   let postModel = PostModel(caption: caption, likes: [String: Bool](), location: "", ownerId: userId, postId: postId, username: "", profile: "", mediaUrl: metaImageUrl, date: Date().timeIntervalSince1970, likeCount: 0, mediaType: "audio")
 

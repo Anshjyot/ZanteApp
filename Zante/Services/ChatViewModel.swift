@@ -3,13 +3,13 @@
 //  Zante
 //
 //  Created by Anshjyot Singh on 10/04/2023.
-//
+//https://www.youtube.com/watch?v=dA_Ve-9gizQ
 
 import Foundation
 import Firebase
 import FirebaseStorage
 
-class ChatService: ObservableObject {
+class ChatViewModel: ObservableObject {
 
   @Published var isLoading = false
   @Published var chats: [ChatModel] = []
@@ -17,8 +17,8 @@ class ChatService: ObservableObject {
   var listener: ListenerRegistration!
   var recipientId = ""
 
-  static var chats = AuthService.storeRoot.collection("chats")
-  static var messages = AuthService.storeRoot.collection("messages")
+  static var chats = AuthenticationViewModel.storeRoot.collection("chats")
+  static var messages = AuthenticationViewModel.storeRoot.collection("messages")
 
   static func conversation(sender: String, recipient: String) -> CollectionReference {
     return chats.document(sender).collection("chats").document(recipient).collection("conversation")
@@ -62,14 +62,14 @@ class ChatService: ObservableObject {
     guard let senderUsername = Auth.auth().currentUser?.displayName else {return}
     guard let senderProfile = Auth.auth().currentUser?.photoURL!.absoluteString else {return}
 
-    let messageId = ChatService.conversation(sender: senderId, recipient: recipientId).document().documentID
+    let messageId = ChatViewModel.conversation(sender: senderId, recipient: recipientId).document().documentID
     let chat = ChatModel(messageId: messageId, textMessage: message, profile: senderProfile, photoUrl: "", sender: senderId, username: senderUsername, timestamp: Date().timeIntervalSince1970, isPhoto: false)
 
     guard let dict = try? chat.asDictionary() else {return}
-    ChatService.conversation(sender: senderId, recipient: recipientId).document(messageId).setData(dict) {
+    ChatViewModel.conversation(sender: senderId, recipient: recipientId).document(messageId).setData(dict) {
       (error) in
       if error == nil {
-        ChatService.conversation(sender: recipientId, recipient: senderId).document(messageId).setData(dict)
+        ChatViewModel.conversation(sender: recipientId, recipient: senderId).document(messageId).setData(dict)
 
         let senderMessage = MessageModel(lastMessage: message, username: senderUsername, isPhoto: false, timestamp: Date().timeIntervalSince1970, userId: senderId, profile: senderProfile)
 
@@ -79,8 +79,8 @@ class ChatService: ObservableObject {
 
         guard let recipientDict = try? recipientMessage.asDictionary() else {return}
 
-        ChatService.messagesId(senderId: senderId, recipientId: recipientId).setData(senderDict)
-        ChatService.messagesId(senderId: recipientId, recipientId: senderId).setData(recipientDict)
+        ChatViewModel.messagesId(senderId: senderId, recipientId: recipientId).setData(senderDict)
+        ChatViewModel.messagesId(senderId: recipientId, recipientId: senderId).setData(recipientDict)
 
         onSuccess()
       } else {
@@ -96,20 +96,20 @@ class ChatService: ObservableObject {
     guard let senderUsername = Auth.auth().currentUser?.displayName else {return}
     guard let senderProfile = Auth.auth().currentUser?.photoURL!.absoluteString else {return}
 
-    let messageId = ChatService.conversation(sender: senderId, recipient: recipientId).document().documentID
+    let messageId = ChatViewModel.conversation(sender: senderId, recipient: recipientId).document().documentID
 
-    let storageChatRef = StorageService.storagechatID(chatId: messageId)
+    let storageChatRef = FirebaseViewModel.storagechatID(chatId: messageId)
 
     let metaData = StorageMetadata()
     metaData.contentType = "image/jpg"
 
-    StorageService.saveChatPhoto(messageId: messageId, recipientId: recipientId, recipientProfile: recipientProfile, recipientName: recipientName, senderProfile: senderProfile, senderId: senderId, senderUsername: senderUsername, imageData: ImageData, metaData: metaData, storageChatRef: storageChatRef, onSuccess: onSuccess, onError: onError)
+    FirebaseViewModel.saveChatPhoto(messageId: messageId, recipientId: recipientId, recipientProfile: recipientProfile, recipientName: recipientName, senderProfile: senderProfile, senderId: senderId, senderUsername: senderUsername, imageData: ImageData, metaData: metaData, storageChatRef: storageChatRef, onSuccess: onSuccess, onError: onError)
 
   }
 
   func getChats(userId: String, onSuccess: @escaping([ChatModel]) -> Void, onError: @escaping(_ error: String) -> Void, newChat: @escaping(ChatModel) -> Void, listener: @escaping(_ listenerHandle: ListenerRegistration) -> Void) {
 
-    let listenerChat = ChatService.conversation(sender: Auth.auth().currentUser!.uid, recipient: userId).order(by: "timestamp", descending: false).addSnapshotListener {
+    let listenerChat = ChatViewModel.conversation(sender: Auth.auth().currentUser!.uid, recipient: userId).order(by: "timestamp", descending: false).addSnapshotListener {
       (qs, err) in
 
       guard let snapshot = qs else {
@@ -145,7 +145,7 @@ class ChatService: ObservableObject {
 
   func getMessages(onSuccess: @escaping([MessageModel]) -> Void, onError: @escaping(_ error: String) -> Void, newMessage: @escaping(MessageModel) -> Void, listener: @escaping(_ listenerHandle: ListenerRegistration) -> Void) {
 
-    let listenerMessage = ChatService.userMessages(userId: Auth.auth().currentUser!.uid).order(by: "timestamp", descending: true).addSnapshotListener {
+    let listenerMessage = ChatViewModel.userMessages(userId: Auth.auth().currentUser!.uid).order(by: "timestamp", descending: true).addSnapshotListener {
       (qs, err) in
 
       guard let snapshot = qs else {
@@ -179,7 +179,7 @@ class ChatService: ObservableObject {
       onSuccess(messages)
     }
 
-    listener(listenerMessage)
+    listener(listenerMessag e)
 
   }
 }

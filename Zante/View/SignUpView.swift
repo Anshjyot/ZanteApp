@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct SignUpView: View {
   @State private var email: String = ""
   @State private var password: String = ""
@@ -20,7 +21,7 @@ struct SignUpView: View {
   @State private var error:String = ""
   @State private var showingAlert = false
   @State private var alertTitle: String = "Failed -,-"
-  @State private var isLinkActive = false
+  @State private var linkSelection: String? = nil
 
   func loadImage() {
     guard let image = pickedImage else  {return}
@@ -54,7 +55,7 @@ struct SignUpView: View {
       return
     }
 
-    AuthService.signUp(username: username, email: email, password: password, imageData: imageData, onSuccess: {(user) in self.clear()}) {
+    AuthenticationViewModel.signUp(username: username, email: email, password: password, imageData: imageData, onSuccess: {(user) in self.clear()}) {
       (errorMessage) in
       self.error = errorMessage
       self.showingAlert = true
@@ -63,24 +64,27 @@ struct SignUpView: View {
     }
   }
 
-    var body: some View {
+  var body: some View {
+    NavigationStack {
       ScrollView {
-        VStack(spacing: 20){
-            
-          VStack{
-              Spacer();
-              Text("Tap to choose profile picture:").font(.system(size: 18, weight: .medium))
-                  .foregroundColor(.blue)
-              
+        VStack(spacing: 20) {
+          VStack {
+            Spacer()
+            Text("Tap to choose profile picture:")
+              .font(.system(size: 18, weight: .medium))
+              .foregroundColor(.blue)
+              .padding(.top, -20)
+
             Group {
-              if profileImage != nil { profileImage!.resizable()
+              if profileImage != nil {
+                profileImage!
+                  .resizable()
                   .clipShape(Circle())
                   .frame(width: 160, height: 160)
                   .padding(.top, 20)
                   .onTapGesture {
                     self.showingSheet = true
                   }
-
               } else {
                 Image(systemName: "person.circle.fill")
                   .resizable()
@@ -92,8 +96,6 @@ struct SignUpView: View {
                   }
               }
             }
-              
-
           }
           .padding(.top, 50)
 
@@ -105,23 +107,23 @@ struct SignUpView: View {
             FormField(value: $password, icon: "lock.fill", placeholder: "Password", isSecure: true)
           }
 
-          NavigationLink(destination: LogInView(), isActive: $isLinkActive) {
-            EmptyView()
-          Button(action: { signUp()
-            self.isLinkActive = true
-          }){
-            Text("Sign Up").font(.title)
-                  .font(.title)
-                  .foregroundColor(.white)
-                  .padding(.horizontal, 120)
-                  .padding(.vertical, 5)
+          Button(action: {
+            signUp()
+            self.linkSelection = "login"
+          }) {
+            Text("Sign Up")
+              .font(.title)
+              .foregroundColor(.white)
+              .padding(.horizontal, 120)
+              .padding(.vertical, 5)
           }
-            }
           .background(Color.blue)
+
+
           .cornerRadius(10)
           .alert(isPresented: $showingAlert) {
-              Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
-            }
+            Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
+          }
 
 
         }.padding()
@@ -135,15 +137,16 @@ struct SignUpView: View {
           self.showingImage = true
         },
 
-        .default(Text("Take a Photo")){
-          self.sourceType = .camera
-          self.showingImage = true
-        }, .cancel()
-         ])
+          .default(Text("Take a Photo")){
+            self.sourceType = .camera
+            self.showingImage = true
+          }, .cancel()
+                                             ])
       }
 
 
     }
+  }
 }
 
 struct SignUpView_Previews: PreviewProvider {

@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct FollowButton: View {
-  @ObservedObject var followService = FollowService()
+struct Follow: View {
+  @ObservedObject var followService = FollowViewModel()
 
   var user: User
   @Binding var followingCount: Int

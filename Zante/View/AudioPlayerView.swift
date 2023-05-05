@@ -1,7 +1,10 @@
 import SwiftUI
 import AVFoundation
 
-struct AudioPostCard: View {
+// https://developer.apple.com/documentation/avfaudio/avaudioplayer
+// https://medium.com/swift-productions/swiftui-play-an-audio-with-avaudioplayer-1c4085e2052c
+
+struct AudioPlayerView: View {
     var post: PostModel
 
     @State private var audioPlayer: AVPlayer?

@@ -20,17 +20,16 @@ var tabs = ["house.fill", "magnifyingglass", "camera.viewfinder", "person.fill"]
 
 struct CustomTabView: View{
     @State var selectedTab = "house.fill"
-    @State var edge = UIApplication.shared.windows.first?.safeAreaInsets
-    @State var currentWindow: UIWindow?
+    @State var currentWindowScene: UIWindowScene?
 
     var body: some View{
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)){
             TabView(selection: $selectedTab){
-                Main()
+                MainView()
                     .tag("house.fill")
                 Search()
                     .tag("magnifyingglass")
-                Post()
+                PostingView()
                     .tag("camera.viewfinder")
                 Profile()
                     .tag("person.fill")
@@ -39,15 +38,13 @@ struct CustomTabView: View{
             .ignoresSafeArea(.all, edges: .bottom)
 
             HStack(spacing: 0){
-                ForEach(tabs, id:\.self){
-                    image in
+                ForEach(tabs, id:\.self){ image in
                     TabButton(image: image, selectedTab: $selectedTab)
 
                     if image != tabs.last{
                         Spacer(minLength: 0)
                     }
                 }
-
             }
             .padding(.horizontal, 25)
             .padding(.vertical, 5)
@@ -56,14 +53,14 @@ struct CustomTabView: View{
             .shadow(color: Color.black.opacity(0.15), radius: 5, x: 5, y: 5)
             .shadow(color: Color.black.opacity(0.15), radius: 5, x: -5, y: -5)
             .padding(.horizontal)
-            .padding(.bottom, edge?.bottom == 0 ? 20: 0)
+            .padding(.bottom, currentWindowScene?.windows.first(where: { $0.isKeyWindow })?.safeAreaInsets.bottom ?? 0)
 
         }
         .ignoresSafeArea(.keyboard, edges: .bottom)
         .background(Color.black.opacity(0.05).ignoresSafeArea(.all, edges: .all))
         .onAppear {
-            if let scene = UIApplication.shared.windows.first?.windowScene {
-                currentWindow = UIWindow(windowScene: scene)
+            if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                currentWindowScene = scene
             }
         }
     }

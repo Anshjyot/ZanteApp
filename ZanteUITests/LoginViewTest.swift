@@ -11,38 +11,38 @@ import XCTest
 
 class LoginViewTest: XCTestCase {
 
-    var testvar: LogInView!
+    var test: LogInView!
 
     override func setUp() {
         super.setUp()
-        testvar = LogInView()
+        test = LogInView()
     }
 
     override func tearDown() {
-        testvar = nil
+        test = nil
         super.tearDown()
     }
 
     func testLoginForm() {
         // Test valid login
-        testvar.email = "validemail@example.com"
-        testvar.password = "password123"
-        testvar.logIn()
-        // You can assert here that the user is logged in successfully
+        test.email = "zante@gmail.com"
+        test.password = "zante123"
+        test.logIn()
 
-        // Test empty email
-        testvar.email = ""
-        testvar.password = "password123"
-        testvar.logIn()
-        XCTAssert(testvar.error == "Please fill in all boxes")
-        XCTAssert(testvar.showingAlert == true)
 
-        // Test empty password
-        testvar.email = "validemail@example.com"
-        testvar.password = ""
-        testvar.logIn()
-        XCTAssert(testvar.error == "Please fill in all boxes")
-        XCTAssert(testvar.showingAlert == true)
+        // Testing empty email
+        test.email = ""
+        test.password = "password"
+        test.logIn()
+        XCTAssert(test.error == "Please fill in all boxes")
+        XCTAssert(test.showingAlert == true)
+
+        // Testing empty password
+        test.email = "mail@example.com"
+        test.password = ""
+        test.logIn()
+        XCTAssert(test.error == "Please fill in all boxes")
+        XCTAssert(test.showingAlert == true)
 
     }
 }

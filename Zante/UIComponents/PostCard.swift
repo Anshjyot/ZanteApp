@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct PostCard: View {
-  @ObservedObject var postCardService = PostCardService()
+  @ObservedObject var postCardService = PostCardViewModel()
 
   @State private var animate = false
   private let duration: Double = 0.3

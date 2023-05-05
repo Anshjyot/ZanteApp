@@ -4,12 +4,11 @@
 //
 //  Created by Anshjyot Singh on 25/03/2023.
 //
-
 import Foundation
 import Firebase
 import FirebaseStorage
 
-class ProfileService : ObservableObject {
+class ProfileViewModel : ObservableObject {
   @Published var posts: [PostModel] = []
   @Published var following = 0
   @Published var followers = 0
@@ -17,8 +16,8 @@ class ProfileService : ObservableObject {
   @Published var followCheck = false
   @Published var allPosts: [PostModel] = []
 
-  static var following = AuthService.storeRoot.collection("following")
-  static var followers = AuthService.storeRoot.collection("followers")
+  static var following = AuthenticationViewModel.storeRoot.collection("following")
+  static var followers = AuthenticationViewModel.storeRoot.collection("followers")
 
   static func followingCollection(userId: String) -> CollectionReference{
     return following.document(userId).collection("following")
@@ -37,7 +36,7 @@ class ProfileService : ObservableObject {
   }
 
   func followState(userid: String) {
-    ProfileService.followingId(userId: userid).getDocument {
+    ProfileViewModel.followingId(userId: userid).getDocument {
       (document, error) in
 
       if let doc = document, doc.exists {
@@ -49,7 +48,7 @@ class ProfileService : ObservableObject {
   }
 
   func loadUserPosts(userId : String) {
-    PostService.loadUserPosts(userId: userId) {
+    PostingViewModel.loadUserPosts(userId: userId) {
       (posts) in
 
       self.posts = posts
@@ -61,75 +60,14 @@ class ProfileService : ObservableObject {
 
 
   func loadAllUsersPosts() {
-       PostService.loadAllUsersPosts { (posts) in
+    PostingViewModel.loadAllUsersPosts { (posts) in
            self.posts = posts
        }
    }
 
 
-
-
-  /*
-  func loadAllUsersPosts() {
-      PostService.loadAllUsersPosts { (posts) in
-          self.posts = posts
-          print("Loaded all users' posts in ProfileService: \(self.posts.count)") // Add this line
-      }
-  }
-
-  func loadAllPostsFromAllUsers() {
-      print("loadAllPostsFromAllUsers called")
-      StorageService.fetchAllUsers { users in
-          for user in users {
-              PostService.loadUserPosts(userId: user.uid) { posts in
-                  self.allPosts.append(contentsOf: posts)
-              }
-          }
-      }
-  }
-
-   */
-
-
-
-
-
-
-
-/*
-  func loadAllUsersPosts() {
-      PostService.loadAllUsersPosts { (posts) in
-          self.posts = posts
-      }
-  }
- */
-
-
-
-/*
-  func loadAllUsersPosts(completion: @escaping ([Post]) -> Void) {
-      PostService.loadAllUsersPosts { posts in
-          completion(posts)
-      }
-  }
- */
-
-
-
-  /*func loadAllUsersPosts(userId : String) {
-    PostService.loadAllUsersPosts() {
-      (posts) in
-
-      self.posts = posts
-    }
-
-    follows(userId: userId)
-    followers(userId: userId)
-  }
-   */
-
   func follows(userId: String) {
-    ProfileService.followingCollection(userId: userId).getDocuments {
+    ProfileViewModel.followingCollection(userId: userId).getDocuments {
       (querysnapshot, err) in
 
       if let doc = querysnapshot?.documents {
@@ -139,7 +77,7 @@ class ProfileService : ObservableObject {
   }
 
   func followers(userId: String) {
-    ProfileService.followersCollection(userId: userId).getDocuments {
+    ProfileViewModel.followersCollection(userId: userId).getDocuments {
       (querysnapshot, err) in
 
       if let doc = querysnapshot?.documents {
@@ -148,5 +86,3 @@ class ProfileService : ObservableObject {
     }
   }
 }
-
-

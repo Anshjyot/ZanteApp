@@ -9,8 +9,8 @@ import SDWebImageSwiftUI
 
 
 struct CommentInput: View {
-  @EnvironmentObject var session: SessionStore
-  @ObservedObject var commentService = CommentService()
+  @EnvironmentObject var session: SessionViewModel
+  @ObservedObject var commentService = CommentViewModel()
   @State private var text: String = ""
 
   init(post: PostModel?, postId: String?) {
@@ -24,7 +24,7 @@ struct CommentInput: View {
   }
 
   func handleInput(postId: String) {
-    PostService.loadPost(postId: postId) {
+    PostingViewModel.loadPost(postId: postId) {
       (post) in
       self.commentService.post = post
     }

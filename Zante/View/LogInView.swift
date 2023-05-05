@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LogInView: View {
 
-  @EnvironmentObject var session: SessionStore
+  @EnvironmentObject var session: SessionViewModel
 
   func listen() {
     session.listen()
@@ -46,7 +46,7 @@ struct LogInView: View {
       return
     }
 
-    AuthService.logIn(email: email, password: password, onSuccess: {
+    AuthenticationViewModel.logIn(email: email, password: password, onSuccess: {
       (user) in
       self.clear()
 

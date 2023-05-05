@@ -10,11 +10,11 @@ import Firebase
 import FirebaseFirestore
 import FirebaseStorage
 
-class PostService: ObservableObject {
+class PostingViewModel: ObservableObject {
 
-  static var Posts = AuthService.storeRoot.collection("posts")
-  static var AllPosts = AuthService.storeRoot.collection("allPosts")
-  static var Timeline = AuthService.storeRoot.collection("timeline")
+  static var Posts = AuthenticationViewModel.storeRoot.collection("posts")
+  static var AllPosts = AuthenticationViewModel.storeRoot.collection("allPosts")
+  static var Timeline = AuthenticationViewModel.storeRoot.collection("timeline")
 
   static func PostsUserId(userId: String) -> DocumentReference {
     return Posts.document(userId)
@@ -29,16 +29,16 @@ class PostService: ObservableObject {
       return
     }
 
-    let postId = PostService.PostsUserId(userId: userId).collection("posts").document().documentID
-    let storagePostRef = StorageService.storagePostID(postId: postId)
+    let postId = PostingViewModel.PostsUserId(userId: userId).collection("posts").document().documentID
+    let storagePostRef = FirebaseViewModel.storagePostID(postId: postId)
     let metaData = StorageMetadata()
     metaData.contentType = "image/jpg"
 
-    StorageService.savePostPhoto(userId: userId, caption: caption, postId: postId, imageData: imageData, metadata: metaData, storagePostRef: storagePostRef, onSuccess: onSuccess, onError: onError)
+    FirebaseViewModel.savePostPhoto(userId: userId, caption: caption, postId: postId, imageData: imageData, metadata: metaData, storagePostRef: storagePostRef, onSuccess: onSuccess, onError: onError)
   }
 
   static func loadPost(postId: String, onSuccess: @escaping(_ post: PostModel) -> Void) {
-    PostService.AllPosts.document(postId).getDocument {
+    PostingViewModel.AllPosts.document(postId).getDocument {
       (snapshot, err) in
 
       guard let snap = snapshot else {
@@ -57,7 +57,7 @@ class PostService: ObservableObject {
 
 
   static func loadUserPosts(userId: String, onSuccess: @escaping(_ posts: [PostModel]) -> Void) {
-    PostService.PostsUserId(userId: userId).collection("posts").getDocuments{(snapshot, error) in
+    PostingViewModel.PostsUserId(userId: userId).collection("posts").getDocuments{(snapshot, error) in
       guard let snap = snapshot else {
         print("Error")
         return
@@ -83,14 +83,14 @@ class PostService: ObservableObject {
   static func loadAllUsersPosts(onSuccess: @escaping(_ posts: [PostModel]) -> Void) {
         var allPosts = [PostModel]()
 
-        // First, fetch all users
-        AuthService.storeRoot.collection("users").getDocuments { (usersSnapshot, error) in
+        // fetching all users
+        AuthenticationViewModel.storeRoot.collection("users").getDocuments { (usersSnapshot, error) in
             guard let usersSnapshot = usersSnapshot else {
                 print("Error fetching users: \(error?.localizedDescription ?? "")")
                 return
             }
 
-            // Then, for each user, fetch their posts
+            // fetching their posts
             for userDoc in usersSnapshot.documents {
                 let userId = userDoc.documentID
                 PostsUserId(userId: userId).collection("posts").getDocuments { (postsSnapshot, error) in
@@ -99,7 +99,7 @@ class PostService: ObservableObject {
                         return
                     }
 
-                    // Finally, for each post, decode it to a PostModel object and add it to the list of all posts
+                    // decoding each post it to a PostModel object and add it to the list of all posts
                     for postDoc in postsSnapshot.documents {
                         let dict = postDoc.data()
                         guard let post = try? PostModel(fromDictionary: dict) else {
@@ -121,12 +121,12 @@ class PostService: ObservableObject {
         return
       }
 
-      let postId = PostService.PostsUserId(userId: userId).collection("posts").document().documentID
-      let storagePostRef = StorageService.storagePostID(postId: postId)
+      let postId = PostingViewModel.PostsUserId(userId: userId).collection("posts").document().documentID
+      let storagePostRef = FirebaseViewModel.storagePostID(postId: postId)
       let metaData = StorageMetadata()
       metaData.contentType = "audio/mpeg"
 
-      StorageService.saveAudioPost(userId: userId, caption: caption, postId: postId, audioData: audioData, metadata: metaData, storagePostRef: storagePostRef, onSuccess: onSuccess, onError: onError)
+    FirebaseViewModel.saveAudioPost(userId: userId, caption: caption, postId: postId, audioData: audioData, metadata: metaData, storagePostRef: storagePostRef, onSuccess: onSuccess, onError: onError)
   }
 
 

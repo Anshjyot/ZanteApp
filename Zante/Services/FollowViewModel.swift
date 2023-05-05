@@ -9,18 +9,18 @@ import Foundation
 import Firebase
 import FirebaseStorage
 
-class FollowService: ObservableObject {
+class FollowViewModel: ObservableObject {
 
   func updateFollowCount(userId: String, followingCount: @escaping (_ followingCount: Int) -> Void, followersCount: @escaping (_ followingCount: Int) -> Void) {
 
-    ProfileService.followingCollection(userId: userId).getDocuments {
+    ProfileViewModel.followingCollection(userId: userId).getDocuments {
       (snap, error) in
       if let doc = snap?.documents {
         followingCount(doc.count)
       }
     }
 
-    ProfileService.followersCollection(userId: userId).getDocuments {
+    ProfileViewModel.followersCollection(userId: userId).getDocuments {
       (snap, error) in
       if let doc = snap?.documents {
         followersCount(doc.count)
@@ -41,14 +41,14 @@ class FollowService: ObservableObject {
 
   func follow(userId: String, followingCount: @escaping (_ followingCount: Int) -> Void, followersCount: @escaping (_ followersCount: Int) -> Void) {
 
-    ProfileService.followingId(userId: userId).setData([:]) {
+    ProfileViewModel.followingId(userId: userId).setData([:]) {
       (err) in
       if err == nil {
         self.updateFollowCount(userId: userId, followingCount: followingCount, followersCount: followersCount)
       }
     }
 
-    ProfileService.followersId(userId: userId).setData([:]) {
+    ProfileViewModel.followersId(userId: userId).setData([:]) {
       (err) in
       if err == nil {
         self.updateFollowCount(userId: userId, followingCount: followingCount, followersCount: followersCount)
@@ -61,7 +61,7 @@ class FollowService: ObservableObject {
 
   func unfollow(userId: String, followingCount: @escaping (_ followingCount: Int) -> Void, followersCount: @escaping (_ followersCount: Int) -> Void) {
 
-    ProfileService.followingId(userId: userId).getDocument {
+    ProfileViewModel.followingId(userId: userId).getDocument {
       (document, err) in
 
       if let doc = document, doc.exists {
@@ -71,7 +71,7 @@ class FollowService: ObservableObject {
       }
     }
 
-    ProfileService.followersId(userId: userId).getDocument {
+    ProfileViewModel.followersId(userId: userId).getDocument {
       (document, err) in
 
       if let doc = document, doc.exists {

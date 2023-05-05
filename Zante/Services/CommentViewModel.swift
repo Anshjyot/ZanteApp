@@ -7,7 +7,7 @@
 import Foundation
 import Firebase
 
-class CommentService: ObservableObject {
+class CommentViewModel: ObservableObject {
 
   @Published var isLoading = false
   @Published var comments: [CommentModel] = []
@@ -15,7 +15,7 @@ class CommentService: ObservableObject {
   var listener: ListenerRegistration!
   var post: PostModel!
 
-  static var commentsRef = AuthService.storeRoot.collection("comments")
+  static var commentsRef = AuthenticationViewModel.storeRoot.collection("comments")
 
   static func commentsId(postId: String) -> DocumentReference {
     return commentsRef.document(postId)
@@ -31,7 +31,7 @@ class CommentService: ObservableObject {
             return
         }
 
-    CommentService.commentsId(postId: postId).collection("comments").addDocument(data: dict) {
+   CommentViewModel.commentsId(postId: postId).collection("comments").addDocument(data: dict) {
       (err) in
       if let err = err {
         onError(err.localizedDescription)
@@ -46,7 +46,7 @@ class CommentService: ObservableObject {
                    ([CommentModel]) -> Void, onError: @escaping(_ error: String) -> Void, newComment: @escaping(CommentModel) -> Void,
                    listener: @escaping(_ listenerHandler: ListenerRegistration) -> Void) {
 
-    let listenerPosts = CommentService.commentsId(postId: postId).collection("comments")
+    let listenerPosts = CommentViewModel.commentsId(postId: postId).collection("comments")
       .order(by: "date", descending: false).addSnapshotListener {
         (snapshot, err) in
 

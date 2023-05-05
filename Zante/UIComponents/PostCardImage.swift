@@ -43,7 +43,7 @@ struct PostCardImage: View {
         Button(action: {
             toggleAudioPlayback(url: url)
         }) {
-            Image(systemName: audioPlayer?.rate == 0 ? "play.circle.fill" : "pause.circle.fill")
+            Image(systemName: audioPlayer?.rate == 0 ? "pause.circle.fill" : "play.circle.fill")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 60, height: 60)
@@ -67,10 +67,10 @@ struct PostCardImage: View {
   }
 
   func toggleAudioPlayback(url: URL) {
-      print("Toggling audio playback")
+      print("Toggling")
 
       if audioPlayer == nil || audioPlayer?.rate == 0 {
-          print("Attempting to play audio from: \(url)")
+          print("Attempting \(url)")
 
           let asset = AVAsset(url: url)
           let playerItem = AVPlayerItem(asset: asset)
@@ -78,9 +78,9 @@ struct PostCardImage: View {
           audioPlayer = AVPlayer(playerItem: playerItem)
           audioPlayer?.play()
 
-          print("Audio player state: \(audioPlayer?.rate ?? -1)")
+
       } else {
-          print("Pausing audio playback")
+          print("Pausing")
           audioPlayer?.pause()
       }
   }

@@ -3,19 +3,20 @@
 //  Zante
 //
 //  Created by Anshjyot Singh on 15/03/2023.
-//
+// https://stackoverflow.com/questions/56515871/how-to-open-the-imagepicker-in-swiftui
+// https://www.appcoda.com/swiftui-camera-photo-library/
 
 import Foundation
 import FirebaseStorage
 import SwiftUI
 
-struct ProfileImage: UIViewControllerRepresentable {
+struct ImagePicker: UIViewControllerRepresentable {
   @Binding var image: Image? //optional fordi før man vælger et image, så vil der ikke være et
   @Binding var showImage: Bool
   @Binding var imageData: Data
 
 
-  func makeCoordinator() -> ProfileImage.Coordinator {
+  func makeCoordinator() -> ImagePicker.Coordinator {
     Coordinator(self)
   }
 
@@ -31,9 +32,9 @@ struct ProfileImage: UIViewControllerRepresentable {
   }
 
   class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    var parent: ProfileImage
+    var parent: ImagePicker
 
-    init(_ parent: ProfileImage) {
+    init(_ parent: ImagePicker) {
       self.parent = parent
     }
 

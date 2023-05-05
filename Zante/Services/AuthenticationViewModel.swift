@@ -3,7 +3,8 @@
 //  Zante
 //
 //  Created by Anshjyot Singh on 19/03/2023.
-//
+//https://www.youtube.com/watch?v=-pAQcPolruw&list=PLimqJDzPI-H9u3cSJCPB_EJsTU8XP2NUT
+// https://stackoverflow.com/questions/67964816/trying-to-fetch-data-from-firestore-coming-up-as-nil-with-swiftui
 
 import Foundation
 import Firebase
@@ -11,7 +12,7 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseFirestore
 
-class AuthService {
+class AuthenticationViewModel {
 
   static var storeRoot = Firestore.firestore()
 
@@ -30,12 +31,12 @@ class AuthService {
 
       guard let userId = authData?.user.uid else {return}
 
-      let storageProfileUserId = StorageService.storageProfileID(userId: userId)
+      let storageProfileUserId = FirebaseViewModel.storageProfileID(userId: userId)
 
       let metadata = StorageMetadata()
       metadata.contentType = "image/jpg"
 
-      StorageService.saveProfileImage(userId: userId, username: username, email: email, imageData: imageData, metaData: metadata, storageProfileImageRef: storageProfileUserId, onSuccess: onSuccess, onError: onError)
+      FirebaseViewModel.saveProfileImage(userId: userId, username: username, email: email, imageData: imageData, metaData: metadata, storageProfileImageRef: storageProfileUserId, onSuccess: onSuccess, onError: onError)
     }
 
   }

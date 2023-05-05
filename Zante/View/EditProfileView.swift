@@ -11,7 +11,7 @@ import FirebaseStorage
 import SDWebImageSwiftUI
 
 struct EditProfile: View {
-  @EnvironmentObject var session: SessionStore
+  @EnvironmentObject var session: SessionViewModel
   @State private var username: String = ""
   @State private var profileImage: Image?
   @State private var pickedImage: Image?
@@ -64,12 +64,12 @@ struct EditProfile: View {
 
     guard let userId = Auth.auth().currentUser?.uid else {return}
 
-    let storageProfileUserId = StorageService.storageProfileID(userId: userId)
+    let storageProfileUserId = FirebaseViewModel.storageProfileID(userId: userId)
 
     let metaData = StorageMetadata()
     metaData.contentType = "image/jpg"
 
-    StorageService.editProfile(userId: userId, username: username, bio: bio, imageData: imageData, metaData: metaData, storageProfileImageRef: storageProfileUserId, onError: {
+    FirebaseViewModel.editProfile(userId: userId, username: username, bio: bio, imageData: imageData, metaData: metaData, storageProfileImageRef: storageProfileUserId, onError: {
       (errorMessage) in
 
       self.error = errorMessage

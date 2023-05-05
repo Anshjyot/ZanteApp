@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 
-  @EnvironmentObject var session: SessionStore
+  @EnvironmentObject var session: SessionViewModel
 
   func listen() {
     session.listen()

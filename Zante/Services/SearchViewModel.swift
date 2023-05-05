@@ -9,10 +9,10 @@ import Foundation
 import FirebaseAuth
 import FirebaseStorage
 
-class SearchService{
+class SearchViewModel{
   static func searchUser(input: String, onSuccess: @escaping (_ user: [User]) -> Void) {
 
-    AuthService.storeRoot.collection("users").whereField("searchName", arrayContains: input.lowercased().removeWhiteSpace()).getDocuments {
+    AuthenticationViewModel.storeRoot.collection("users").whereField("searchName", arrayContains: input.lowercased().removeWhiteSpace()).getDocuments {
       (querySnapshot, err) in
       guard let snap = querySnapshot else {
         print("error")

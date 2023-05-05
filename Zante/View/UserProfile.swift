@@ -18,7 +18,7 @@ struct UserProfile: View {
   func searchUsers(){
     isLoading = true
 
-    SearchService.searchUser(input: value) {
+    SearchViewModel.searchUser(input: value) {
       (users) in
 
       self.isLoading = false

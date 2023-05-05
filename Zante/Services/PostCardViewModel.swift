@@ -9,7 +9,7 @@ import Firebase
 import SwiftUI
 import FirebaseStorage
 
-class PostCardService : ObservableObject {
+class PostCardViewModel : ObservableObject {
 
   @Published var post: PostModel!
   @Published var isLiked = false
@@ -22,13 +22,13 @@ class PostCardService : ObservableObject {
     post.likeCount += 1
     isLiked = true
 
-    PostService.PostsUserId(userId: post.ownerId).collection("posts").document(post.postId)
+    PostingViewModel.PostsUserId(userId: post.ownerId).collection("posts").document(post.postId)
       .updateData(["likeCount" : post.likeCount,"likes.\(Auth.auth().currentUser!.uid)": true])
 
-    PostService.AllPosts.document(post.postId).updateData(
+    PostingViewModel.AllPosts.document(post.postId).updateData(
       ["likeCount" : post.likeCount,"likes.\(Auth.auth().currentUser!.uid)": true])
 
-    PostService.timelineUserId(userId:
+    PostingViewModel.timelineUserId(userId:
       post.ownerId).collection("timeline").document(post.postId)
       .updateData(["likeCount" : post.likeCount,
       "likes.\(Auth.auth().currentUser!.uid)": true])
@@ -38,11 +38,11 @@ class PostCardService : ObservableObject {
     post.likeCount -= 1
     isLiked = false
 
-    PostService.PostsUserId(userId: post.ownerId).collection("posts").document(post.postId).updateData(["likeCount" : post.likeCount,"likes.\(Auth.auth().currentUser!.uid)": false])
+    PostingViewModel.PostsUserId(userId: post.ownerId).collection("posts").document(post.postId).updateData(["likeCount" : post.likeCount,"likes.\(Auth.auth().currentUser!.uid)": false])
 
-    PostService.AllPosts.document(post.postId).updateData(["likeCount" : post.likeCount,"likes.\(Auth.auth().currentUser!.uid)": false])
+    PostingViewModel.AllPosts.document(post.postId).updateData(["likeCount" : post.likeCount,"likes.\(Auth.auth().currentUser!.uid)": false])
 
-    PostService.timelineUserId(userId: post.ownerId).collection("timeline").document(post.postId).updateData(["likeCount" : post.likeCount,"likes.\(Auth.auth().currentUser!.uid)": false])
+    PostingViewModel.timelineUserId(userId: post.ownerId).collection("timeline").document(post.postId).updateData(["likeCount" : post.likeCount,"likes.\(Auth.auth().currentUser!.uid)": false])
   }
 
 }

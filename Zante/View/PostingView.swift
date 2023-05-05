@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct Post: View {
+struct PostingView: View {
   @State private var postImage: Image?
   @State private var pickedImage: Image?
   @State private var showingSheet = false
@@ -42,7 +42,7 @@ struct Post: View {
     }
 
     if mediaType == "audio" {
-      PostService.uploadAudioPost(caption: text, audioData: audioData!, onSuccess: {
+      PostingViewModel.uploadAudioPost(caption: text, audioData: audioData!, onSuccess: {
         self.clear()
       }) { (errorMessage) in
         self.error = errorMessage
@@ -50,7 +50,7 @@ struct Post: View {
         return
       }
     } else {
-      PostService.uploadPost(caption: text, imageData: imageData, onSuccess: {
+      PostingViewModel.uploadPost(caption: text, imageData: imageData, onSuccess: {
         self.clear()
       }) { (errorMessage) in
         self.error = errorMessage

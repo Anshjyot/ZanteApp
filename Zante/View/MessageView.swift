@@ -3,7 +3,7 @@ import SDWebImageSwiftUI
 
 struct MessageView: View {
     var user: User
-    @StateObject var chatService = ChatService()
+    @StateObject var chatViewModel = ChatViewModel()
     @State private var message: String = ""
     @State private var isLoading: Bool = false
     @State private var imageData: Data = Data()
@@ -11,9 +11,9 @@ struct MessageView: View {
     var body: some View {
         VStack {
             ScrollView {
-                ForEach(chatService.chats, id: \.messageId) { chat in
+                ForEach(chatViewModel.chats, id: \.messageId) { chat in
                     if chat.isCurrentUser {
-                        // Your own messages
+                        // own message
                         HStack {
                             Spacer()
                             Text(chat.textMessage)
@@ -23,7 +23,7 @@ struct MessageView: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 15))
                         }.padding(.horizontal)
                     } else {
-                        // Messages from the other user
+                        // other user message
                         HStack {
                             Text(chat.textMessage)
                                 .padding()
@@ -44,7 +44,7 @@ struct MessageView: View {
               Button(action: {
                   isLoading = true
                   // Send text message
-                  chatService.sendMessage(message: message, recipientId: user.uid, recipientProfile: user.profileImageURL, recipientName: user.userName, onSuccess: {
+                chatViewModel.sendMessage(message: message, recipientId: user.uid, recipientProfile: user.profileImageURL, recipientName: user.userName, onSuccess: {
                       message = ""
                       isLoading = false
                   }, onError: { error in
@@ -64,8 +64,8 @@ struct MessageView: View {
         }
         .navigationBarTitle("Chat with \(user.userName)", displayMode: .inline)
         .onAppear {
-            chatService.recipientId = user.uid
-            chatService.loadChats()
+          chatViewModel.recipientId = user.uid
+          chatViewModel.loadChats()
         }
     }
 }

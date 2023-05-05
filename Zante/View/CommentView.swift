@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct Comment: View {
-  @StateObject var commentService = CommentService()
+  @StateObject var commentViewModel = CommentViewModel()
   var post: PostModel?
   var postId: String?
 
@@ -15,8 +15,8 @@ struct Comment: View {
     var body: some View {
       VStack(spacing: 10){
         ScrollView {
-          if !commentService.comments.isEmpty {
-            ForEach(commentService.comments) {
+          if !commentViewModel.comments.isEmpty {
+            ForEach(commentViewModel.comments) {
               (comment) in
               CommentCard(comment: comment).padding(.top)
             }
@@ -26,14 +26,14 @@ struct Comment: View {
       }
       .navigationTitle("Comments")
       .onAppear{
-        self.commentService.postId = self.post == nil ? self.postId
+        self.commentViewModel.postId = self.post == nil ? self.postId
         :self.post?.postId
 
-        self.commentService.loadComment()
+        self.commentViewModel.loadComment()
       }
       .onDisappear {
-        if self.commentService.listener != nil {
-          self.commentService.listener.remove()
+        if self.commentViewModel.listener != nil {
+          self.commentViewModel.listener.remove()
         }
       }
 

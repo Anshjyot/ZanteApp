@@ -6,8 +6,8 @@ import FirebaseStorage
 struct Profile: View {
   @State var selection = 1
   @State private var isProfileActive = false
-  @EnvironmentObject var session: SessionStore
-  @StateObject var profileService = ProfileService()
+  @EnvironmentObject var session: SessionViewModel
+  @StateObject var profileService = ProfileViewModel()
   @State private var isLinkActive = false
 
   let threeColumns = [GridItem(), GridItem(), GridItem()]

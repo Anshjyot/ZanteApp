@@ -1,8 +1,8 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
-struct Main: View {
-    @StateObject var profileService = ProfileService()
+struct MainView: View {
+    @StateObject var profileService = ProfileViewModel()
 
     var body: some View {
         ScrollView {
