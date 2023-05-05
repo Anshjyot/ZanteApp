@@ -292,7 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				858480902A03E99900DB72FA /* Localizable.strings */,
-				85928D1529C79B1800449D12 /* Services */,
+				85928D1529C79B1800449D12 /* ViewModel */,
 				85928D1029C7922C00449D12 /* Model */,
 				85928D0E29C359D100449D12 /* GoogleService-Info.plist */,
 				853AAD9C29C238EF00EFB666 /* Util */,
@@ -345,7 +345,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		85928D1529C79B1800449D12 /* Services */ = {
+		85928D1529C79B1800449D12 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				85928D1629C79B2600449D12 /* AuthenticationViewModel.swift */,
@@ -359,7 +359,7 @@
 				8521266C29E32B9D00677819 /* CommentViewModel.swift */,
 				8521267A29E4045C00677819 /* ChatViewModel.swift */,
 			);
-			path = Services;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		EEA5B1329F37DF687C3560ED /* Pods */ = {
