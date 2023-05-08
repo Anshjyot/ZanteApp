@@ -124,7 +124,7 @@ struct EditProfile: View {
         }
       }.navigationTitle(session.session!.userName)
         .sheet(isPresented: $showingImage, onDismiss: loadImage) {
-          ProfileImage(image: self.$pickedImage, showImage: self.$showingImage, imageData: self.$imageData)
+          ImagePicker(image: self.$pickedImage, showImage: self.$showingImage, imageData: self.$imageData)
 
 
         }.actionSheet(isPresented: $showingSheet) {

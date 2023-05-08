@@ -11,7 +11,7 @@ import FirebaseStorage
 import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
-  @Binding var image: Image? //optional fordi før man vælger et image, så vil der ikke være et
+  @Binding var image: Image? //optional fordi før man vælger et image,
   @Binding var showImage: Bool
   @Binding var imageData: Data
 

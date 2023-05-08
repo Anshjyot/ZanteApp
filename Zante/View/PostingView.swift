@@ -94,7 +94,7 @@ struct PostingView: View {
       if mediaType == "audio" {
         AudioPicker(showAudioPicker: $showAudioPicker, audioData: $audioData, selectedAudioFileName: $selectedAudioFileName)
       } else {
-        ProfileImage(image: self.$pickedImage, showImage: self.$showingImage, imageData: self.$imageData)
+        ImagePicker(image: self.$pickedImage, showImage: self.$showingImage, imageData: self.$imageData)
       }
     }
 
@@ -148,7 +148,7 @@ struct PostingView: View {
     }
     .padding()
             .sheet(isPresented: $showImagePicker, onDismiss: loadImage) {
-                ProfileImage(image: self.$pickedImage, showImage: self.$showImagePicker, imageData: self.$imageData)
+                ImagePicker(image: self.$pickedImage, showImage: self.$showImagePicker, imageData: self.$imageData)
             }
             .sheet(isPresented: $showAudioPicker, onDismiss: nil) {
                 AudioPicker(showAudioPicker: self.$showAudioPicker, audioData: self.$audioData, selectedAudioFileName: self.$selectedAudioFileName)
