@@ -35,8 +35,8 @@ class ProfileViewModel : ObservableObject {
     return followers.document(userId).collection("followers").document(Auth.auth().currentUser!.uid)
   }
 
-  func followState(userid: String) {
-    ProfileViewModel.followingId(userId: userid).getDocument {
+  func followState(userid: String) { // checking if they are following,
+    ProfileViewModel.followingId(userId: userid).getDocument { //  fetches the document of the current user's following list
       (document, error) in
 
       if let doc = document, doc.exists {
@@ -47,8 +47,8 @@ class ProfileViewModel : ObservableObject {
     }
   }
 
-  func loadUserPosts(userId : String) {
-    PostingViewModel.loadUserPosts(userId: userId) {
+  func loadUserPosts(userId : String) { //
+    PostingViewModel.loadUserPosts(userId: userId) { //sets posts property to the posts array returned from loadUserPosts.
       (posts) in
 
       self.posts = posts
@@ -66,7 +66,7 @@ class ProfileViewModel : ObservableObject {
    }
 
 
-  func follows(userId: String) {
+  func follows(userId: String) { // retrieves the num of users that the current user is following
     ProfileViewModel.followingCollection(userId: userId).getDocuments {
       (querysnapshot, err) in
 
@@ -76,7 +76,7 @@ class ProfileViewModel : ObservableObject {
     }
   }
 
-  func followers(userId: String) {
+  func followers(userId: String) { // retrieves the number of followers for a given user ID
     ProfileViewModel.followersCollection(userId: userId).getDocuments {
       (querysnapshot, err) in
 

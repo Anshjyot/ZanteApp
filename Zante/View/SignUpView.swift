@@ -21,9 +21,9 @@ struct SignUpView: View {
   @State private var error:String = ""
   @State private var showingAlert = false
   @State private var alertTitle: String = "Failed -,-"
-  @State private var linkSelection: String? = nil
+  @State private var linkSelection: String? = nil // navigation link
 
-  func loadImage() {
+  func loadImage() { // loading the picked image
     guard let image = pickedImage else  {return}
 
     profileImage = image
@@ -55,6 +55,7 @@ struct SignUpView: View {
       return
     }
 
+    // success
     AuthenticationViewModel.signUp(username: username, email: email, password: password, imageData: imageData, onSuccess: {(user) in self.clear()}) {
       (errorMessage) in
       self.error = errorMessage

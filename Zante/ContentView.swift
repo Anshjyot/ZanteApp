@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// main view of the app
+
 struct ContentView: View {
 
   @EnvironmentObject var session: SessionViewModel
@@ -17,12 +19,12 @@ struct ContentView: View {
 
   var body: some View {
     Group{
-      if(session.session != nil) {
+      if(session.session != nil) { // checks if there is an authenticated user or not and renders either HomeView or LogInView accordingly
         HomeView()
       } else {
         LogInView()
       }
-    }.onAppear(perform: listen)
+    }.onAppear(perform: listen) // listens to changes in the authentication state
   }
 }
 

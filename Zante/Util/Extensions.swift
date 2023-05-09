@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseStorage
 
-extension Encodable {
+extension Encodable { // converts the Encodable object to a dictionary.
   func asDictionary() throws -> [String: Any] {
     let data = try JSONEncoder().encode(self)
     guard let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
@@ -21,7 +21,7 @@ extension Encodable {
     }
   }
 
-extension Decodable {
+extension Decodable { // converts a dictionary to the Decodable object.
   init(fromDictionary: Any) throws {
     let data = try JSONSerialization.data(withJSONObject: fromDictionary, options: .prettyPrinted)
                                                 let decoder = JSONDecoder()
@@ -30,7 +30,7 @@ extension Decodable {
 }
 
 
-extension String {
+extension String { //  splits a string into an array of strings
   func splitString() -> [String] {
     var stringArray: [String] = []
     let trimmed = String(self.filter { !" \n\t\r".contains($0)})
@@ -44,14 +44,14 @@ extension String {
     return stringArray
   }
 
-  func removeWhiteSpace() -> String {
+  func removeWhiteSpace() -> String { //  removes white spaces from the string.
     return components(separatedBy: .whitespaces).joined()
   }
 
 }
 
 
-extension Date {
+extension Date { // time difference between the current date and the date object as a string
   func timeAgo() -> String {
     let formatter = DateComponentsFormatter()
     formatter.unitsStyle = .full

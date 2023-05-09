@@ -33,154 +33,177 @@ class ChatViewModel: ObservableObject {
   }
 
   func loadChats() {
-    self.chats = []
+    self.chats = [] // Clear chats
     self.isLoading = true
 
     self.getChats(userId: recipientId, onSuccess: {
       (chats) in
       if self.chats.isEmpty{
-        self.chats = chats
+        self.chats = chats // loaded chats
       }
     }, onError: {
       (err) in
       print("Error \(err)")
     }, newChat: {
       (chat) in
-      if !self.chats.isEmpty{
+      if !self.chats.isEmpty{ // append new chat
         self.chats.append(chat)
       }
     }) {
-      (listener) in
+      (listener) in // to update
       self.listener = listener
     }
   }
 
   func sendMessage(message: String, recipientId: String, recipientProfile: String, recipientName: String,
-                   onSuccess: @escaping() -> Void, onError: @escaping(_ error: String) -> Void) {
+                     onSuccess: @escaping() -> Void, onError: @escaping(_ error: String) -> Void) {
+      // get sender information
+      guard let senderId = Auth.auth().currentUser?.uid else {return}
+      guard let senderUsername = Auth.auth().currentUser?.displayName else {return}
+      guard let senderProfile = Auth.auth().currentUser?.photoURL!.absoluteString else {return}
 
-    guard let senderId = Auth.auth().currentUser?.uid else {return}
-    guard let senderUsername = Auth.auth().currentUser?.displayName else {return}
-    guard let senderProfile = Auth.auth().currentUser?.photoURL!.absoluteString else {return}
+      // generate message ID and create chat object
+      let messageId = ChatViewModel.conversation(sender: senderId, recipient: recipientId).document().documentID
+      let chat = ChatModel(messageId: messageId, textMessage: message, profile: senderProfile, photoUrl: "", sender: senderId, username: senderUsername, timestamp: Date().timeIntervalSince1970, isPhoto: false)
 
-    let messageId = ChatViewModel.conversation(sender: senderId, recipient: recipientId).document().documentID
-    let chat = ChatModel(messageId: messageId, textMessage: message, profile: senderProfile, photoUrl: "", sender: senderId, username: senderUsername, timestamp: Date().timeIntervalSince1970, isPhoto: false)
+      // converting chat object to dictionary to save it to Firebase
+      guard let dict = try? chat.asDictionary() else {return}
+      ChatViewModel.conversation(sender: senderId, recipient: recipientId).document(messageId).setData(dict) {
+        (error) in
+        if error == nil {
+          // save the same chat object to the recipient's conversation
+          ChatViewModel.conversation(sender: recipientId, recipient: senderId).document(messageId).setData(dict)
 
-    guard let dict = try? chat.asDictionary() else {return}
-    ChatViewModel.conversation(sender: senderId, recipient: recipientId).document(messageId).setData(dict) {
-      (error) in
-      if error == nil {
-        ChatViewModel.conversation(sender: recipientId, recipient: senderId).document(messageId).setData(dict)
+          //  message objects for the sender and recipient
+          let senderMessage = MessageModel(lastMessage: message, username: senderUsername, isPhoto: false, timestamp: Date().timeIntervalSince1970, userId: senderId, profile: senderProfile)
 
-        let senderMessage = MessageModel(lastMessage: message, username: senderUsername, isPhoto: false, timestamp: Date().timeIntervalSince1970, userId: senderId, profile: senderProfile)
+          let recipientMessage = MessageModel(lastMessage: message, username: recipientName, isPhoto: false, timestamp: Date().timeIntervalSince1970, userId: recipientId, profile: recipientProfile)
 
-        let recipientMessage = MessageModel(lastMessage: message, username: recipientName, isPhoto: false, timestamp: Date().timeIntervalSince1970, userId: recipientId, profile: recipientProfile)
+          // converting message objects to dictionary and save them to Firebase
+          guard let senderDict = try? senderMessage.asDictionary() else {return}
 
-        guard let senderDict = try? senderMessage.asDictionary() else {return}
+          guard let recipientDict = try? recipientMessage.asDictionary() else {return}
 
-        guard let recipientDict = try? recipientMessage.asDictionary() else {return}
+          ChatViewModel.messagesId(senderId: senderId, recipientId: recipientId).setData(senderDict)
+          ChatViewModel.messagesId(senderId: recipientId, recipientId: senderId).setData(recipientDict)
 
-        ChatViewModel.messagesId(senderId: senderId, recipientId: recipientId).setData(senderDict)
-        ChatViewModel.messagesId(senderId: recipientId, recipientId: senderId).setData(recipientDict)
-
-        onSuccess()
-      } else {
-        onError(error!.localizedDescription)
+          onSuccess()
+        } else { // error
+          onError(error!.localizedDescription)
+        }
       }
     }
-  }
+
 
   func sendPhotoMessage(ImageData: Data, recipientId: String, recipientProfile: String, recipientName: String,
-                        onSuccess: @escaping() -> Void, onError: @escaping(_ error: String) -> Void) {
+                          onSuccess: @escaping() -> Void, onError: @escaping(_ error: String) -> Void) {
 
-    guard let senderId = Auth.auth().currentUser?.uid else {return}
-    guard let senderUsername = Auth.auth().currentUser?.displayName else {return}
-    guard let senderProfile = Auth.auth().currentUser?.photoURL!.absoluteString else {return}
+      // Getting the sender information from the current user
+      guard let senderId = Auth.auth().currentUser?.uid else {return}
+      guard let senderUsername = Auth.auth().currentUser?.displayName else {return}
+      guard let senderProfile = Auth.auth().currentUser?.photoURL!.absoluteString else {return}
 
-    let messageId = ChatViewModel.conversation(sender: senderId, recipient: recipientId).document().documentID
+      //ID for chat message
+      let messageId = ChatViewModel.conversation(sender: senderId, recipient: recipientId).document().documentID
 
-    let storageChatRef = FirebaseViewModel.storagechatID(chatId: messageId)
+      // metadata for the chat photo
+      let storageChatRef = FirebaseViewModel.storagechatID(chatId: messageId)
+      let metaData = StorageMetadata()
+      metaData.contentType = "image/jpg"
 
-    let metaData = StorageMetadata()
-    metaData.contentType = "image/jpg"
-
-    FirebaseViewModel.saveChatPhoto(messageId: messageId, recipientId: recipientId, recipientProfile: recipientProfile, recipientName: recipientName, senderProfile: senderProfile, senderId: senderId, senderUsername: senderUsername, imageData: ImageData, metaData: metaData, storageChatRef: storageChatRef, onSuccess: onSuccess, onError: onError)
-
+      // Saving chat photo to Firebase storage
+      FirebaseViewModel.saveChatPhoto(messageId: messageId, recipientId: recipientId, recipientProfile: recipientProfile, recipientName: recipientName, senderProfile: senderProfile, senderId: senderId, senderUsername: senderUsername, imageData: ImageData, metaData: metaData, storageChatRef: storageChatRef, onSuccess: onSuccess, onError: onError)
   }
+
 
   func getChats(userId: String, onSuccess: @escaping([ChatModel]) -> Void, onError: @escaping(_ error: String) -> Void, newChat: @escaping(ChatModel) -> Void, listener: @escaping(_ listenerHandle: ListenerRegistration) -> Void) {
+      // napshot listener to get chats between current user and the given uid
+      let listenerChat = ChatViewModel.conversation(sender: Auth.auth().currentUser!.uid, recipient: userId).order(by: "timestamp", descending: false).addSnapshotListener {
+        (qs, err) in
 
-    let listenerChat = ChatViewModel.conversation(sender: Auth.auth().currentUser!.uid, recipient: userId).order(by: "timestamp", descending: false).addSnapshotListener {
-      (qs, err) in
+        // error
+        guard let snapshot = qs else {
+          return
+        }
 
-      guard let snapshot = qs else {
-        return
-      }
 
-      var chats  = [ChatModel]()
-      snapshot.documentChanges.forEach {
-        (diff) in
+        var chats = [ChatModel]()
 
-        if(diff.type == .added) {
-          let dict = diff.document.data()
+        // Looping through the document changes
+        snapshot.documentChanges.forEach {
+          (diff) in
 
-          guard let decoded = try?
-                  ChatModel.init(fromDictionary: dict) else {
-            return
+          // document is added
+          if(diff.type == .added) {
+            let dict = diff.document.data()
+
+            // decoding to ChatModel from document data, and adding to chat array
+            guard let decoded = try?
+                    ChatModel.init(fromDictionary: dict) else {
+              return
+            }
+            newChat(decoded)
+            chats.append(decoded)
           }
-          newChat(decoded)
-          chats.append(decoded)
-        }
-        if(diff.type == .modified) {
-          print("Modified")
-        }
-        if(diff.type == .removed) {
-          print("Removed")
-        }
-
-      }
-      onSuccess(chats)
-    }
-    listener(listenerChat)
-  }
-
-  func getMessages(onSuccess: @escaping([MessageModel]) -> Void, onError: @escaping(_ error: String) -> Void, newMessage: @escaping(MessageModel) -> Void, listener: @escaping(_ listenerHandle: ListenerRegistration) -> Void) {
-
-    let listenerMessage = ChatViewModel.userMessages(userId: Auth.auth().currentUser!.uid).order(by: "timestamp", descending: true).addSnapshotListener {
-      (qs, err) in
-
-      guard let snapshot = qs else {
-        return
-      }
-
-      var messages  = [MessageModel]()
-
-      snapshot.documentChanges.forEach {
-        (diff) in
-
-        if(diff.type == .added) {
-          let dict = diff.document.data()
-
-          guard let decoded = try?
-                  MessageModel.init(fromDictionary: dict) else {
-            return
+          //  document is modified
+          if(diff.type == .modified) {
+            print("Modified")
           }
-          newMessage(decoded)
-          messages.append(decoded)
-        }
-        if(diff.type == .modified) {
-          print("Modified")
-        }
-        if(diff.type == .removed) {
-          print("Removed")
+          //  document is removed
+          if(diff.type == .removed) {
+            print("Removed")
+          }
         }
 
+        onSuccess(chats)
       }
 
-      onSuccess(messages)
+      listener(listenerChat)
     }
 
-    listener(listenerMessage)
+    func getMessages(onSuccess: @escaping([MessageModel]) -> Void, onError: @escaping(_ error: String) -> Void, newMessage: @escaping(MessageModel) -> Void, listener: @escaping(_ listenerHandle: ListenerRegistration) -> Void) {
+      // snapshot listener to get messages between current user and all other users
+      let listenerMessage = ChatViewModel.userMessages(userId: Auth.auth().currentUser!.uid).order(by: "timestamp", descending: true).addSnapshotListener {
+        (qs, err) in
 
+        // error
+        guard let snapshot = qs else {
+          return
+        }
+
+
+        var messages = [MessageModel]()
+
+        // Looping through the document changes
+        snapshot.documentChanges.forEach {
+          (diff) in
+
+          // document is added
+          if(diff.type == .added) {
+            let dict = diff.document.data()
+
+            // Decoding to MessageModel from the document data, and adding it to messages array
+            guard let decoded = try?
+                    MessageModel.init(fromDictionary: dict) else {
+              return
+            }
+            newMessage(decoded)
+            messages.append(decoded)
+          }
+          // document is modified
+          if(diff.type == .modified) {
+            print("Modified")
+          }
+          // document is removed
+          if(diff.type == .removed) {
+            print("Removed")
+          }
+        }
+
+        onSuccess(messages)
+      }
+
+      listener(listenerMessage)
+    }
   }
-}
 

@@ -46,7 +46,7 @@ struct LogInView: View {
       return
     }
 
-    AuthenticationViewModel.logIn(email: email, password: password, onSuccess: {
+    AuthenticationViewModel.logIn(email: email, password: password, onSuccess: { // success
       (user) in
       self.clear()
 
@@ -85,7 +85,7 @@ struct LogInView: View {
 
             Button(action: {
                 logIn()
-                listen()
+                listen() // listening to authentication state changes
             }) {
                 Text("Log In")
                     .font(.title)

@@ -26,6 +26,7 @@ struct PostingView: View {
   @State private var showImagePicker = false
 
 
+  // Loading selected image
 
   func loadImage() {
     guard let image = pickedImage else  {return}
@@ -33,6 +34,7 @@ struct PostingView: View {
     postImage = image
   }
 
+  // Uploading the post
   func uploadPost() {
     if let error = errorCheck() {
       self.error = error

@@ -13,7 +13,7 @@ class FollowViewModel: ObservableObject {
 
   func updateFollowCount(userId: String, followingCount: @escaping (_ followingCount: Int) -> Void, followersCount: @escaping (_ followingCount: Int) -> Void) {
 
-    ProfileViewModel.followingCollection(userId: userId).getDocuments {
+    ProfileViewModel.followingCollection(userId: userId).getDocuments { // fetches data and update
       (snap, error) in
       if let doc = snap?.documents {
         followingCount(doc.count)
@@ -32,16 +32,16 @@ class FollowViewModel: ObservableObject {
   func manageFollow(userId: String, followCheck: Bool, followingCount: @escaping (_ followingCount: Int) -> Void, followersCount: @escaping (_ followersCount: Int) -> Void) {
 
     if !followCheck {
-      follow(userId: userId, followingCount: followingCount, followersCount: followersCount)
+      follow(userId: userId, followingCount: followingCount, followersCount: followersCount) // if not following, then follow
     } else {
-      unfollow(userId: userId, followingCount: followingCount, followersCount: followersCount)
+      unfollow(userId: userId, followingCount: followingCount, followersCount: followersCount) // unfollow, if already following
     }
 
   }
 
   func follow(userId: String, followingCount: @escaping (_ followingCount: Int) -> Void, followersCount: @escaping (_ followersCount: Int) -> Void) {
 
-    ProfileViewModel.followingId(userId: userId).setData([:]) {
+    ProfileViewModel.followingId(userId: userId).setData([:]) {  // empty dictionary
       (err) in
       if err == nil {
         self.updateFollowCount(userId: userId, followingCount: followingCount, followersCount: followersCount)

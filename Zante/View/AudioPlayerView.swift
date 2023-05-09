@@ -18,13 +18,14 @@ struct AudioPlayerView: View {
     }
 
     func loadThumbnail() {
-        guard let url = URL(string: post.mediaUrl) else { return }
-        let asset = AVAsset(url: url)
-        let generator = AVAssetImageGenerator(asset: asset)
-        generator.appliesPreferredTrackTransform = true
+        guard let url = URL(string: post.mediaUrl) else { return } // post mediaUrl is valid
+        let asset = AVAsset(url: url) // Creating AVAsset with the mediaUrl
+        let generator = AVAssetImageGenerator(asset: asset) // Create AVAssetImageGenerator with the asset
+        generator.appliesPreferredTrackTransform = true // generator applies the preferred track transform
 
-        do {
+        do { // // Generate thumbnail image at time 0
             let imageRef = try generator.copyCGImage(at: CMTimeMake(value: 0, timescale: 1), actualTime: nil)
+          // Convert imageRef to UIImage and store in thumbnailImage
             thumbnailImage = UIImage(cgImage: imageRef)
         } catch let error {
             print("Error generating thumbnail: \(error.localizedDescription)")

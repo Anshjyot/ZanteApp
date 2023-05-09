@@ -10,6 +10,7 @@ struct Profile: View {
   @StateObject var profileService = ProfileViewModel()
   @State private var isLinkActive = false
 
+  //array
   let threeColumns = [GridItem(), GridItem(), GridItem()]
 
   var body: some View {

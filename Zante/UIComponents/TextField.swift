@@ -20,7 +20,7 @@ struct FormField: View {
           Image(systemName: icon).padding()
           Group{
             if isSecure {
-              SecureField(placeholder, text: $value)
+              SecureField(placeholder, text: $value) // password
             } else {
               TextField(placeholder, text: $value)
             }

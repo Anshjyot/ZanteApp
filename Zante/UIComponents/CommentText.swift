@@ -38,6 +38,7 @@ struct CommentInput: View {
                 // handle missing session values
                 return
             }
+          //default value if nil
             let ownerId = commentService.post?.ownerId ?? ""
             let postId = commentService.post?.postId ?? ""
             commentService.postComment(comment: text, username: username, profile: profile, ownerId: ownerId, postId: postId) {

@@ -19,14 +19,14 @@ class SearchViewModel{
         return
       }
       var users = [User]()
-      for document in snap.documents {
+      for document in snap.documents { // retrieves the data as a dictionary
         let dict = document.data()
 
         guard let decoded = try? User.init(fromDictionary: dict) else {
           return
         }
 
-        if decoded.uid != Auth.auth().currentUser!.uid {
+        if decoded.uid != Auth.auth().currentUser!.uid { //Removing current user from the search results
           users.append(decoded)
         }
         onSuccess(users)

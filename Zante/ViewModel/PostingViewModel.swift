@@ -26,10 +26,10 @@ class PostingViewModel: ObservableObject {
 
   static func uploadPost(caption: String, imageData: Data, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
     guard let userId = Auth.auth().currentUser?.uid else {
-      return
+      return // cant retrive data
     }
 
-    let postId = PostingViewModel.PostsUserId(userId: userId).collection("posts").document().documentID
+    let postId = PostingViewModel.PostsUserId(userId: userId).collection("posts").document().documentID // new postID
     let storagePostRef = FirebaseViewModel.storagePostID(postId: postId)
     let metaData = StorageMetadata()
     metaData.contentType = "image/jpg"
@@ -38,16 +38,16 @@ class PostingViewModel: ObservableObject {
   }
 
   static func loadPost(postId: String, onSuccess: @escaping(_ post: PostModel) -> Void) {
-    PostingViewModel.AllPosts.document(postId).getDocument {
+    PostingViewModel.AllPosts.document(postId).getDocument { // loads a post with postid
       (snapshot, err) in
 
-      guard let snap = snapshot else {
+      guard let snap = snapshot else { // fetching error
         print("Error")
         return
       }
 
-      let dict = snap.data()
-      guard let decoded = try? PostModel.init(fromDictionary: dict!) else {
+      let dict = snap.data() // post data from doc snapshot
+      guard let decoded = try? PostModel.init(fromDictionary: dict!) else { // decoding post data into PostModel object
         return
       }
       onSuccess(decoded)
@@ -65,14 +65,14 @@ class PostingViewModel: ObservableObject {
 
       var posts = [PostModel]()
 
-      for doc in snap.documents {
+      for doc in snap.documents { // decoder all post data to postModel object
         let dict = doc.data()
         guard let decoder = try? PostModel.init(fromDictionary: dict)
         else {
           return
         }
 
-        posts.append(decoder)
+        posts.append(decoder) //posts array
       }
 
       onSuccess(posts)
@@ -85,7 +85,7 @@ class PostingViewModel: ObservableObject {
 
         // fetching all users
         AuthenticationViewModel.storeRoot.collection("users").getDocuments { (usersSnapshot, error) in
-            guard let usersSnapshot = usersSnapshot else {
+            guard let usersSnapshot = usersSnapshot else { // error handling
                 print("Error fetching users: \(error?.localizedDescription ?? "")")
                 return
             }
@@ -107,7 +107,7 @@ class PostingViewModel: ObservableObject {
                             continue
                         }
 
-                        allPosts.append(post)
+                        allPosts.append(post) // add to listen
                     }
 
                     onSuccess(allPosts)
@@ -117,7 +117,7 @@ class PostingViewModel: ObservableObject {
     }
 
   static func uploadAudioPost(caption: String, audioData: Data, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
-      guard let userId = Auth.auth().currentUser?.uid else {
+      guard let userId = Auth.auth().currentUser?.uid else { // get currently logged in, uid. 
         return
       }
 
